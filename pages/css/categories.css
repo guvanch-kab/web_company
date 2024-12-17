@@ -1,0 +1,115 @@
+/* Sidebar container */
+.sidebar {
+    width:100%;
+    height: 100%;
+    background: #fff;
+    position: relative; /* Sidebar'ı sabitle */
+    transition: all .3s ease-in-out;
+    z-index: 100;
+    transform: translateX(0); /* Başlangıçta görünür */
+    
+
+  }
+  
+  /* Hamburger simgesi */
+  .dashboard-link {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    color: #23313f;
+    display: none; /* Başlangıçta gizle */
+  }
+  
+  /* Sidebar açıldığında (toggle) */
+  .sidebar-toggle {
+    transform: translateX(-240px); /* Sidebar'ı gizle */
+  }
+  
+  /* Sub-menu container */
+  .sidebar .sub-menu {
+    position: relative; /* Alt menüyü konumlandırmak için relative */
+    width: 100%;
+  }
+  
+  .sidebar .sub-menu-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Alt menüyü sağa hizalar */
+    background-color: #fff;
+    width:270px;
+    padding-top: 0;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; */
+
+
+  }
+  
+  /* Alt menü üzerine gelindiğinde göster */
+  .sidebar .sub-menu:hover .sub-menu-content {
+    display: block;
+  }
+  
+  /* Sidebar links */
+  .sidebar #leftside-navigation ul li a {
+    color: #23313f;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0 10px 25px;
+    font-size: 16px;
+    transition: all 200ms ease-in;
+  }
+  
+  /* Hover effect on links */
+  .sidebar #leftside-navigation ul li a:hover {
+    color: #357cc4;
+  }
+  
+  /* Sub-menu link styles */
+  .sidebar .sub-menu-content li a {
+    padding: 10px 20px;
+    color: #4278dd;
+  }
+  
+  /* Hover effect on sub-menu links */
+  .sidebar .sub-menu-content li a:hover {
+    color: #688dd2;
+  }
+  
+  .category-header {
+    display: block;
+    width: 100%;
+    background-color: #4b97dc;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center; /* Ortalanmış yazı */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Kategori başlığına biraz boşluk */
+  }
+
+  /* Ana menü öğesinin bağlantı stilini düzenleme */
+.menu-link {
+    display: block;
+    position: relative;
+    padding: 10px 30px 10px 10px; /* Sağda ok simgesi için boşluk bırakma */
+    background-color: #fff; /* Ana menü öğesi arka planı */
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Sağ ok simgesinin sağa hizalanması */
+  .menu-link .arrow {
+    position: absolute;
+    right: 10px; /* Sağdan boşluk bırakma */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Hover efekti */
+  .menu-link:hover {
+    background-color: #ebf3fa;
+  }
+  

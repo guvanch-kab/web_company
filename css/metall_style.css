@@ -1,0 +1,34 @@
+/* .metall_img{
+    width: 96%;
+    height: 250px;
+} */
+
+<script id="productTemplate" type="text/x-jquery-tmpl">
+        
+
+<div class="row rowdesign" style="padding:15px; border:1px solid #fff; background-color: #fff;">
+    {{each deger}}
+    {{if image}}
+        <div class="col-md-3 card_text" style="padding:1px;">
+            <div class="product">
+                <!-- <p style="font-size:18px; margin:8px;"> Nomer: ${$index + 1}</p> -->
+                <img src="pages/images/${image}" alt="Product Image">
+                <p style="font-size:18px; margin:8px;"> Product: ${name} </p>
+                <div class="" align="left">
+                    Price: ${price}<br>
+                    <a href='#' class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div><!--end col-md-3-->
+        {{/if}}
+    {{/each}}
+</div><!--end row-->
+
+</script>
+
+///////////////
+
+<div id="Info-box-wrap-2431" class="aio-icon-box top-icon" style=""><div class="aio-icon-top"><div class="ult-just-icon-wrapper  "><div class="align-icon" style="text-align:center;">
+<div class="aio-icon circle " style="color:#ffffff;font-size:32px;display:inline-block;">
+<i class="icomoon-icomoonfree-16x16-paint-format"></i>
+</div></div></div></div><div class="aio-icon-header"><h3 class="aio-icon-title ult-responsive" data-ultimate-target="#Info-box-wrap-2431 .aio-icon-title" data-responsive-json-new="{&quot;font-size&quot;:&quot;desktop:20px;&quot;,&quot;line-height&quot;:&quot;desktop:30px;&quot;}" style="">СТРОЙМАТЕРИАЛЫ</h3></div> <!-- header --><div class="aio-icon-description ult-responsive" data-ultimate-target="#Info-box-wrap-2431 .aio-icon-description" data-responsive-json-new="{&quot;font-size&quot;:&quot;&quot;,&quot;line-height&quot;:&quot;&quot;}" style="">Оптовая и розничная торговля. Постоянно в наличии стройматериалы: краска, битум, грунт, сетка, круги отрезные, электроды.</div> <!-- description --></div>

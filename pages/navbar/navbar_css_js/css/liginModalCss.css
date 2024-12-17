@@ -1,0 +1,135 @@
+#myModal{
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+}
+.modal-header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: #fff;
+    width: 20rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1rem;
+}
+.container-btn-modal span{
+    position: absolute;
+    height: 0.25rem;
+    width: 1.2rem;
+    background-color: #868686;;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+}
+.right-stick{
+    transform: rotate(45deg);
+}
+.left-stick{
+    transform: rotate(-45deg);
+}
+.imgContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0.7rem auto;
+}
+.mine-title-signin{
+    width: 10rem;
+}
+.tab-conten-modal{
+    display: flex;
+}
+.login-modal-tab{
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.login-modal-tab p{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.signup-modal-tab{
+    cursor: pointer;
+}
+.signup-modal-tab p{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.tab-active{
+    color: #28a745;
+}
+.signup-content-modal{
+    width: 20rem;
+    display: flex;
+    background-color: #fff;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+#modal-tab-1{
+    display: flex;
+}
+#modal-tab-2{
+    display: none;
+}
+#modal-tab-3{
+    display: none;
+}
+.login-content-modal{
+    width: 90%;
+    margin: auto;
+}
+.forum-modal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin: auto;
+}
+.label-modal{
+    padding: 0.3rem 0 0.2rem 0;
+    color: #6c6d6e;
+    font-size: 1rem;
+}
+.forgot-pas-link{
+    cursor: pointer;
+    padding-bottom: 1.2rem;
+    width: 100%;
+    display: flex;
+    text-align: start;
+    margin: auto;
+    color: #dc3545;
+    font-size: 0.9rem;
+}
+.login-input-user-modal{
+    padding: 0.6rem;
+    width: 18rem;
+    border-radius: 0.2rem;
+    border: 1px solid #868686;
+    font-size: 0.8rem;
+    margin: 0.3rem 0;
+}
+.btn-login-modal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: start;
+    padding: 0.7rem;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.6rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.03rem;
+    background-color: #28a745;
+    border-radius: 0.3rem;
+    border: none;
+    outline: none;
+}

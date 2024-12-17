@@ -1,0 +1,153 @@
+<style>
+  .rowdesign {
+    background-color: #fff;
+    padding: 20px 5px;
+    box-shadow: 0 4px 8px rgba(71, 65, 65, 0.1);
+  }
+  input {
+    padding-bottom: 8px;
+  }
+</style>
+
+<div >
+  <div id="order" class="row rowdesign" style="display: none; width: 100%;justify-content: space-evenly;">
+
+    <div class="col-md-7" style="padding: 0px 5px">
+
+      <table class="responsive-table" style="border: none">
+        <colgroup>
+          <col style="width: 20%" />
+          <col style="width: 12%" />
+          <col style="width: 10%" />
+          <col style="width: 10%" />
+          <col style="width: 6%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Haryt ady</th>
+            <th style="display: none">Tonna bahasy</th>
+            <th>1 meter bahasy</th>
+            <th style="display: none">Metr uzynlygy</th>
+            <th>Mukdary</th>
+            <th>Jemi (manat)</th>
+            <th>Poz</th>
+          </tr>
+        </thead>
+
+        <tbody class="shopping-cart"></tbody>
+
+
+      </table>
+    </div>
+    <!-- end col-md-8-->
+    
+    <div class="col-md-4" id="order_form">
+      <form id="orderForm">
+        <div class="card card-success" style="padding-bottom: 10px">
+          <div class="card-header">
+            <h5 class="card-title">Sargyt formy</h5>
+          </div>
+          <div class="card-body">
+            <input type="text"  style="margin-bottom: 10px" class="form-control"  id="name"  name="name"  required placeholder="ady" autocomplete="off" />
+            <input  type="text" style="margin-bottom: 10px"  class="form-control"  id="surname"  name="surname"   required   placeholder="familiasy" autocomplete="off" />
+            <input type="email" class="form-control" id="email" name="email"  placeholder="email" autocomplete="off">
+                  <br> 
+            <input  type="phone"  style="margin-bottom: 10px"  class="form-control" id="phone"    name="phone"   required  placeholder="telefony" autocomplete="off" />
+            <select class="form-control" style="margin-bottom: 10px" name="select_region">
+              <option>Asgabat 1</option>
+              <option>Änew</option>
+              <option>Gökdepe</option>
+            </select>
+            <textarea style="margin-bottom: 10px" name="home_address" class="form-control" rows="3"
+              placeholder="öý salgysy ..."></textarea>
+            <input type="date"class="form-control" id="date" name="date" required />
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <div id="responseMessage" class="mt-3"></div>
+        <div
+          class="order_total_sum"
+          style="display: flex; justify-content: flex-end; padding: 10px 0px" >
+          <div class="cart-total" style="text-align: right">
+            <h6 style="padding-bottom: 3px">
+              Jemi baha: <span id="totalSum"></span>
+            </h6>
+            <button id="checkout-btn" class="btn btn-primary">Sargyt et</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  </div>
+  <!-- col-md-4-->
+</div>
+<div id="empty" style="width: 100%;display: none;">
+    <div style="width: 100%;display: flex; justify-content: center; justify-items: end; align-items: center;">
+        <img src="/pages/images/icons/empty.svg" alt="Hello world"  height="250px" style="display: block;"  />
+      <p class="font-weight-bold">Sebediniz bosh!</p>
+    </div>
+    </div>
+<!-- end row-->
+
+<script>
+  $(document).ready(function () {
+    let products = localStorage.getItem("shoppingCart");
+      products = JSON.parse(products);
+
+      if (products?.length == 0 || products == null) {
+        $("#empty").css("display", "inline-flex");
+        $("#order").css("display", "none");
+      }else {
+        $("#empty").css("display", "none");
+        $("#order").css("display", "inline-flex");
+      }
+    $("#orderForm").on("submit", function (e) {
+      e.preventDefault(); // Formun normal şekilde gönderilmesini engeller
+      //console.log($(this).serialize()); // Form verilerini konsola yazdır
+
+      var rbaha = Math.floor(Math.random() * 100000);
+      var cl_id = Math.random().toString(36).slice(-16) + rbaha;
+
+      var order_id = Math.floor(Math.random() * 1000000);
+
+      var formData =
+        $(this).serialize() + "&cl_id=" + encodeURIComponent(cl_id) + "&order_id=" + encodeURIComponent(order_id);
+      $.ajax({
+        url: "pages/orderpage/get_order.php",
+        type: "POST",
+        data: formData, // cl_id dahil edilmiş form verileri  // data: $(this).serialize(),
+        success: function (response) {
+          $("#responseMessage").html(
+            '<div class="alert alert-success">' +
+              '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+              '<span aria-hidden="true">&times;</span>' +
+              "</button>" +
+              response +
+              "</div>"
+          );
+          localStorage.removeItem('shoppingCart')
+          localStorage.removeItem('shoppingCartCount');          
+
+          $(".close").on("click", function () {
+            $(this).closest(".alert").fadeOut();
+            setTimeout(()=>{ window.location.reload();  },1000)  
+
+          });
+          $("#orderForm")[0].reset(); 
+        },
+        error: function (xhr, status, error) {
+          console.error("AJAX Hatası:", status, error); 
+          $("#responseMessage").html(
+            '<div class="alert alert-danger">Bir hata oluştu, lütfen tekrar deneyin.</div>'
+          );
+        },
+      });
+    });
+
+
+
+
+
+  });
+</script>

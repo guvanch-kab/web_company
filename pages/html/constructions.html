@@ -1,0 +1,78 @@
+
+    <div class="row rowdesign mt-2" id="constructions" style="padding:15px; border:1px solid #fff; background-color: #fff;">
+        {{each deger}}
+        {{if image}}
+            <div class="col-md-3 card_text" style="padding:1px;">
+                <div class="product_cart">
+                    <!-- <p style="font-size:18px; margin:8px;"> Nomer: ${$index + 1}</p> -->
+                    <img src="pages/images/${image_path}/${image}" alt="Product Image">
+                    <p style="font-size:18px; margin:8px;"> Product: ${name} </p>
+                   
+                    <div style="padding:2px 2px; text-align: right;">
+                        Price: ${price}<br>
+                        <a href="#" class="btn_shop_svg" id="sebede_gosh">
+                            <img src="pages/images/icons/shopping-cart.svg" alt="Shopping Cart" style="fill: #ffffff;">
+                            <span>Sebede goş</span>
+                        </a>
+                    </div>     
+                </div>
+            </div><!--end col-md-3-->
+            {{/if}}
+        {{/each}}
+    </div>
+
+
+
+    <!-- <script id="productTemplate" type="text/x-jquery-tmpl">
+        <div class="row rowdesign mt-2" style="padding:15px; border:1px solid #fff; background-color: #fff;">
+            {{each deger}}
+                {{if image}}
+                    <div class="col-md-3 card_text" style="padding:1px;">
+                        <div class="product_cart">
+                            <img src="pages/images/${image_path}/${image}" alt="Product Image">
+                            <p style="font-size:18px; margin:8px;">Product: ${name}</p>
+                            <div style="padding:2px 2px; text-align: right;">
+                                Price: ${price}<br>
+                                <a href="#" class="btn_shop_svg" id="sebede_gosh">
+                                    <img src="pages/images/icons/shopping-cart.svg" alt="Shopping Cart">
+                                    <span>Sebede goş</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </script> -->
+
+    
+/*
+if(sectionId=='boyaglar')
+{
+    var url = 'pages/' + sectionId + ".php";
+$.ajax({
+    url: url,
+    type: "GET", // GET methodu kullanılarak JSON formatında verileri alır
+    dataType: "json",
+    success: function (data) {
+        // Veriyi al ve şablona uygula
+        $("#products").empty(); // Önceki içeriği temizle
+        $("#productTemplate").tmpl({ deger: data }).appendTo("#products");
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+        if (jqXHR.status === 404) {
+            // 404 hatası için Bootstrap uyarısı oluştur
+            var errorAlert = $('<div class="alert alert-danger" role="alert"></div>');
+            errorAlert.text("Talep edilen sayfa (" + url + ") bulunamadı. (404 Not Found)");
+            $("#products").empty(); // Önceki içeriği temizle (isteğe bağlı)
+            $("#products").append(errorAlert);
+        } else {
+            // Diğer hataları işle (isteğe bağlı)
+            console.error("Error:", textStatus, errorThrown);
+        }
+    }
+});
+}
+
+
+*/

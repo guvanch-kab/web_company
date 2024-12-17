@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Table to Card</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="metall_table.css" />
+    <link rel="stylesheet" href="all.min.css" />
+  </head>
+  <body>
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th>Kody</th>
+          <th>Haryt ady</th>
+          <th>Tonnadaky bahasy (manat)</th>
+          <th>1 meter bahasy (manat)</th>
+          <th>Metr uzynlygy</th>
+          <th>Mukdary</th>
+          <th>Jemi (manat)</th>
+          <th>Sargyt etmek</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Kody">123456</td>
+          <td data-label="Haryt ady">Armatur 8mm</td>
+          <td data-label="Tonnadaky bahasy (manat)">16500</td>
+          <td data-label="1 meter bahasy (manat)">35</td>
+          <td data-label="Metr uzynlygy">12</td>
+          <td data-label="Mukdary">
+            <div class="number-input">
+              <button
+                onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                class="minus"
+              >
+                -
+              </button>
+              <input type="number" class="input-number" value="1" min="1" />
+              <button
+                onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                class="plus"
+              >
+                +
+              </button>
+            </div>
+          </td>
+          <td data-label="Jemi (manat)">750</td>
+          <td data-label="Sargyt etmek">
+            <i
+              class="fas fa-shopping-cart"
+              style="font-size: 24px; color: #f47a00"
+            ></i>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Kody">123456</td>
+          <td data-label="Haryt ady">Armatur 8mm</td>
+          <td data-label="Tonnadaky bahasy (manat)">16500</td>
+          <td data-label="1 meter bahasy (manat)">35</td>
+          <td data-label="Metr uzynlygy">12</td>
+          <td data-label="Mukdary">
+            <input type="number" value="1" min="1" />
+          </td>
+          <td data-label="Jemi (manat)">750</td>
+          <td data-label="Sargyt etmek">
+            <i
+              class="fas fa-shopping-cart"
+              style="font-size: 24px; color: #f47a00"
+            ></i>
+          </td>
+        </tr>
+
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </body>
+</html>

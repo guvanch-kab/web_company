@@ -1,0 +1,33 @@
+.ramkasyz{
+    font-size: 13px !important;
+    margin: auto;
+}
+th{
+    font-size: 13px;
+    background-color: #008a8a;
+    color: #e1ffff;
+}
+table td{
+    border-bottom: none;
+}
+ #LENGTH_METALL, #QUANTITY, #STOCK_AMOUNT, #METER_WEIGHT{
+    max-width: 80px; width: 100%;
+}
+#PRICE, #image {
+    max-width: 120px; width: 100%;
+}
+#image_path{
+    max-width: 160px; width: 100%;  
+}
+.trash-icon {
+            color: #EE4A22; /* Başlangıç rengi */
+            font-size: 18px;
+            transition: color 0.3s; /* Renk geçiş süresi */
+        }
+        .trash-icon:hover {
+            color: #ffffff; /* Hover rengi */
+        }
+.table-bordered td{
+    vertical-align: middle !important;
+}
+  

@@ -1,0 +1,154 @@
+<style>
+
+        .accordion-button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+          }
+          .accordion-button:hover {
+            background-color: #0056b3;
+            color: azure;
+            text-decoration: none;
+          }
+          .accordion-button:focus {
+            box-shadow: none;
+            text-decoration: none;
+          }
+          .accordion-body {
+            background-color: #f9f9f9;
+            padding: 20px;
+          }
+          .box_custom {
+            width: 40px;
+            height: 40px;
+            margin: 6px 6px 6px 0;
+            border-radius:4px;
+            position: relative; /* Tooltip için konum ayarı */
+            cursor: pointer;
+            transition: transform 0.3s; /* Animasyon efekti */
+           
+          }
+          .box_custom.active {
+            width: 44px;
+            height: 44px;
+            transform: scale(1.05); /* Parlak görünüm için büyütme efekti */
+      position: relative;    
+
+          }
+          .box_custom.active::after {
+            content: "✔";
+            position: absolute;
+            color: #fff;
+            top: 50%;
+            left: 50%; transform: translate(-50%,-50%);
+          }
+         .radio_size {
+            display: flex;
+            align-items: center; /* Dikey hizalama */
+            padding-bottom: 8px;
+           border-bottom: 1px solid #c5c5c5;
+            padding-top:8px;
+            margin-bottom: 2px;
+        }        
+        .form-check-input {
+            width: 20px; 
+            height: 20px; 
+            margin-right: 10px; 
+            cursor: pointer;       
+        }
+        
+        .form-check-label {
+            position: relative;
+            padding-left: 20px; 
+        }
+        
+        .form-check-label::after {
+            content: attr(for); /* Label için arka plan metni */
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgba(0, 123, 255, 0.1); /* Arka plan rengi (isteğe bağlı) */
+            padding: 2px 5px; /* Arka plan metninin etrafında boşluk */
+            z-index: -1; /* Arka planı label'ın arkasına al */
+        }
+        
+      </style>   
+
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link accordion-button accordion_prof" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Accordion Item #1
+                </button>
+              </h2>
+            </div>
+      
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body accordion-body">
+<div class="row">
+<div class="col-md-5 bg-white py-3" id="colorContainer"  style="display: flex; border-right: 3px solid #e9e9e9; ">
+    <!---- color select div-->
+</div>
+
+<div class="col-md-5 bg-white py-3 " id="thickness_roof"  style="border-right: 3px solid #e9e9e9;"> 
+<!--- radio buttons place-->
+</div>
+<div class="col-md-2 bg-white py-3 " id="price_roof" style="font-size:22px; display: flex; justify-content: center;align-items:start" >
+<!--- roof prices-->
+</div>
+
+</div> 
+              </div>
+            </div>
+          </div>
+
+          <script>
+            $(function () {
+              // Tooltip'leri başlat
+              $('[data-toggle="tooltip"]').tooltip();
+              var thickness=''; 
+              var originalColor='';   
+              
+              $('.box_custom').on('click', function () {
+                //event.preventDefault();               
+                $('.box_custom').removeClass('active'); 
+                $(this).addClass('active');
+                originalColor = $(this).data('original-color');    
+                $('#thickness_roof input[type="radio"]').prop('checked', false); 
+                $("#price_roof").empty()
+
+              }); 
+
+          
+              $('#thickness_roof').on('change', 'input[name="priceOptions"]', function(event) {
+                  event.preventDefault();            
+                  thickness = $(this).val();  // Değer atanıyor
+                  var originalColor = $('.box_custom.active').data('original-color');
+                 // alert(thickness)
+
+                   if (thickness && originalColor) {  // thicknessValue kontrolü
+                   
+              $.ajax({
+                url: 'pages/sifer/get_roofs_price.php', // PHP dosyasının yolu
+                method: 'POST',
+                data: {
+                    thickness: thickness, // Kalınlık verisini gönder
+                    color:originalColor
+                },
+                success: function(response) {
+                    $("#price_roof").html(response); // Yanıtı price_roof div'ine ekle
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('AJAX Yalnyslygy: ' + textStatus + ' - ' + errorThrown);
+                }         
+              });
+          }
+          
+        });
+      });
+          </script>
+
+   

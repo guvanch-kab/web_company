@@ -1,0 +1,50 @@
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  font-size: 14px;
+
+}
+
+.table thead th {
+  background-color: #343a40;
+  color: #fff;
+  font-weight: bold;
+}
+
+.table td,
+.table th {
+  white-space: nowrap; /* Tabloların hücrelerinin satırlara sığmasını sağlar */
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .table-responsive .table th,
+  .table-responsive .table td {
+    font-size: 12px; /* Daha küçük ekranlar için yazı boyutunu küçültün */
+  }
+}
+
+@media (max-width: 576px) {
+  .table-responsive .table th,
+  .table-responsive .table td {
+    font-size: 10px; /* Çok küçük ekranlar için yazı boyutunu daha da küçültün */
+  }
+
+  .table-responsive .table th:last-child,
+  .table-responsive .table td:last-child {
+    display: none; /* Çok küçük ekranlarda son sütunu gizleyebilirsiniz */
+  }
+}
+
+input[type="number"] {
+  max-width: 80px; /* Giriş alanının genişliğini sınırla */
+  margin: 0 auto; /* Ortalamak için otomatik kenar boşluğu */
+}
+
+.btn-warning {
+  font-size: 14px; /* Buton yazı boyutunu ayarlayın */
+  padding: 5px 10px; /* Buton iç dolgusunu ayarlayın */
+}
+

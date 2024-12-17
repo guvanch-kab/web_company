@@ -1,0 +1,66 @@
+
+.col-md-3 a {
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    color: #007BFF; /* Link rengi */
+    font-weight: bold; /* Kalın yazı tipi */
+}
+.col-md-3 a:hover {
+    text-decoration: underline; /* Fare üzerine gelince alt çizgi */
+    color: #0056b3; /* Fare üzerine gelince renk değişimi */
+}
+.senetakvimi{
+   
+    padding:6px 2px;
+}
+
+.rowdesign{
+    background-color:#fff; border-radius:6px; padding:10px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+label{
+    font-size: 12px;
+}
+
+.ozeldegisim {
+padding: 0 4px;
+}
+
+.custom-button {
+    border-radius: 4px;
+    margin: 0 5px;
+    width: 100%;
+    font-size: 0.9rem; /* Yazı boyutunu küçültmek için */
+    padding: 10px 1px; /* Buton yüksekliğini arttırmak için */
+    white-space: normal; /* Metnin sarılmasını sağlamak için */
+}
+.custom-input {
+    display: inline-block; /* Input'un buton gibi davranması için */
+    height: 100%; /* Butonlarla aynı yüksekliği sağlamak için */
+   
+
+    border-color: #007BFF;
+}
+
+@media print {
+    body * {
+        visibility: visible;
+    }
+
+
+
+    #bootstrap-data-table-export,
+    #bootstrap-data-table-export * {
+        visibility: visible;
+    }
+
+    #bootstrap-data-table-export {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+.ortala {
+    text-align: center;
+}
+

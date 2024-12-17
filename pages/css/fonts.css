@@ -1,0 +1,43 @@
+.metall_page_title{
+  color: #fff;  
+  font:normal 700 34px/40px"Open Sans Condenced", Helvetica;
+}
+
+.icons_text_align{
+  text-align: justify;
+}
+
+.metall_desc {
+  font-size: 16px; /* Yazı tipi boyutu */
+  line-height: 1.9; /* Satır yüksekliği */
+  color: #797979; /* Yazı rengi */
+  text-align: justify; /* Metin hizalama */
+  margin-top:0px; /* Üstten boşluk */
+  border:1px solid #f5f5eb;
+  border-left: 4px solid #ffa042;
+  border-radius: 3px;
+  padding:8px 20px !important;
+  /* padding-left:15px; */
+}
+
+/* Responsive ayarlamalar ve kenar boşlukları */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Köşe yuvarlama */
+  box-shadow: 0 4px 8px rgba(71, 65, 65, 0.1); /* Gölge efekti */
+}
+
+@media (max-width: 768px) {
+  .metall_desc {
+      margin-top: 20px;
+  }
+}
+
+/* .metall_top {
+  display: flex;
+  align-items: center;
+ 
+  max-width: 1320px;
+  margin: 0 auto;
+} */

@@ -1,0 +1,44 @@
+// gurlusyk.php'yi yükle ve işlem yap
+function loadGurlusykPage() {
+$.ajax({
+url: "gurlusyk.php", // gurlusyk.php dosyasını yükle
+type: "GET",
+success: function(response) {
+$("#gurlusyk-container").html(response); // İçeriği kapsayıcıya ekle
+attachGroupLinksHandler(); // Alt menü yükleme işlevini çağır
+},
+error: function() {
+alert("gurlusyk.php yüklenemedi.");
+}
+});
+}
+
+// Alt menü işlemleri için event handler
+function attachGroupLinksHandler() {
+$(document).on("click", ".item_grupba", function(event) {
+event.preventDefault();
+var menu_haryt = $(this).find(".grupba_link").text().trim();
+
+console.log(menu_haryt);
+
+$.ajax({
+url: "pages/g_harytlar_link.php",
+type: "POST",
+data: { grupba_adi: menu_haryt },
+success: function(response) {
+$(".add_group_links").empty().html(response); // gurlusyk.php içindeki alanı güncelle
+ekle(); // Ekstra işlemler için ek bir işlev çalıştır
+},
+error: function() {
+alert("Veri yüklenemedi.");
+}
+});
+});
+}
+
+// Sayfa yüklendiğinde gurlusyk.php'yi yükle
+$(document).ready(function() {
+loadGurlusykPage();
+});
+
+<div id="gurlusyk-container"></div>

@@ -1,0 +1,138 @@
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.icon_service_Titles {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+.steps_icon {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.step_icon {
+  width: 200px;
+  margin-bottom: 20px;
+  flex: 1 1 200px;
+  min-width: 150px;
+}
+.steps_icon .step_icon .icon {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.steps_icon .step_icon .icon img {
+  width: 80px;
+  height: auto;
+}
+.icon_service_Title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.icon_service_P {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.procedure-section {
+  position: relative;
+  height: 65vh;
+  background: linear-gradient(to bottom, rgba(79, 117, 189, 1), rgba(79, 117, 189, 0.3)), url("pages/images/icon_place/img.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.icon_overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .procedure-section{
+    height: 100vh;
+  }
+  .icon_service_Titles {
+    font-size: 28px;
+  }
+  .steps_icon {
+    justify-content: center;
+  }
+  .step_icon {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .icon_service_Titles {
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+  .steps_icon .step_icon .icon img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .icon_service_P {
+    font-size: 12px;
+  }
+}
+</style>
+
+<section class="procedure-section">
+    <div class="icon_overlay">
+      <div class="container" style="display:flex;flex-direction:column;text-align:center;">
+        <h2 class="icon_service_Titles">Biz tapawutlanýarys</h2>
+        <div class="steps_icon">
+          <div class="step_icon">
+            <div class="icon">
+              <img src="pages/images/icon_place/hil.png" alt="Application Icon"/>
+            </div>
+            <h3 class="icon_service_Title">Ýokary hil</h3>
+            <p class="icon_service_P">
+              Kendir her bir harydyňyz ýokary hilliligi we amatlylygy bilen
+              tapawutlanýar
+            </p>
+          </div>
+          <div class="step_icon">
+            <div class="icon">
+              <img src="pages/images/icon_place/wagt.png" alt="Contract Icon"/>
+            </div>
+            <h3 class="icon_service">Wagt</h3>
+            <p class="icon_service_P">Siziň islän günüňizde we sagadyňyzda eltip bermek hyzmaty</p>
+          </div>
+          <div class="step_icon">
+            <div class="icon">
+              <img src="pages/images/icon_place/mugt.png" alt="Payment Icon"/>
+            </div>
+            <h3 class="icon_service">Mugt</h3>
+            <p class="icon_service_P">
+              Kendirden 200 manatdan geçen her bir sargydyňyzda eltip bermek
+              hyzmatymyz mugt
+            </p>
+          </div>
+          <div class="step_icon">
+            <div class="icon">
+              <img src="pages/images/icon_place/tel.png" alt="Delivery Icon"/>
+            </div>
+            <h3 class="icon_service">Habarlaşyň</h3>
+            <p class="icon_service_P">
+              Siz sagat 8:00 - 18:00 aralygynda islän wagtyňyz bize jan edip
+              bilersiňiz
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

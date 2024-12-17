@@ -1,0 +1,105 @@
+.header-dropdown {
+  position: relative;
+  /* padding-top:10px; */
+  /* padding-bottom: 0.8rem; */
+  /* text-align: left !important; */
+/* min-width: 150px; */
+}
+.header-dropdown + .header-dropdown {
+  margin-left: 2.9rem;
+}
+
+.header-dropdown > a,
+.header-dropdown > span {
+  display: inline-flex;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  /* padding-right: 2.2rem; */
+  align-items: center;
+
+}
+
+.header-menu {
+  position: absolute;
+  /* left: -1.5rem; */
+  right:0px;
+
+  z-index: 10;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  min-width: 200px;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 7px rgba(94, 83, 83, 0.5);
+  transition: all 0.25s;
+  margin-top: 1px;
+  text-align: left !important; /* Add this to ensure left alignment */
+  border-radius: 4px;
+}
+
+.header-dropdown:hover > .header-menu,
+.header-dropdown:focus > .header-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.header-menu ul {
+  margin: 0;
+  list-style: none;
+  padding:0px;
+  margin-left: -20px;
+
+  text-align: left; /* Ensure list items align left */
+}
+
+.header-menu ul li {
+  margin: 0;  
+}
+
+.header-menu ul a {
+  padding: 0.5rem 1.5rem;
+  display: block; /* Ensure full block clickable area */
+  white-space: nowrap;
+  text-align: left; /* Ensure text aligns to the left */
+  font-size: 13px;
+}
+
+.header-menu a:hover,
+.header-menu a:focus {
+  color: #737373;
+  background-color:#efefef;
+}
+
+.user_guest, .userExit, .my_place{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+
+}
+.login_name {
+  border-bottom: 1px solid #b2b2b2;
+  font-weight: 600; pointer-events:none; cursor:default;
+}
+
+.place_area {
+  width: 100%;
+  height:auto;
+  /* margin-top:25px !important; */
+  background-color: #fff;
+  border-radius: 6px;  
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  justify-content: center; margin:auto; margin-top:2px; padding:0;
+}
+.login_name {
+  pointer-events: none; /* Tıklamayı devre dışı bırakır */
+  cursor: not-allowed; /* Tıklamanın mümkün olmadığını gösteren stil */
+  text-decoration: underline; /* Altı çizili görünüm için */
+}
+
+@media (max-width: 600px) {
+  .header-menu{
+    bottom: 128%;
+    right: -12px;
+  }
+}

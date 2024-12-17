@@ -1,0 +1,17 @@
+{
+  "name": "jquery.tmpl",
+  "description": "jQuery.tmpl lib for browsers",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maccman/jquery.tmpl.git"
+  },
+  "author": "Alex MacCaw <info@eribium.org>",
+  "engines": {
+    "node": "*"
+  },
+  "main": "./index.js",
+  "dependencies": { 
+    "jqueryify": "~0.0.1"
+  }
+}

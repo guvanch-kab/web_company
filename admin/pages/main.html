@@ -1,0 +1,29 @@
+<section class="au-breadcrumb m-t-75">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <span style="padding-right:6px">Metal hasaplaýan kalkulýator </span>
+                    <span style="font-weight: 500; font-size:18px"> </span> <span
+                        style="font-weight: 600; font-size:22px" id="metall_name"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END BREADCRUMB-->
+<div class="container-fluid pict">
+    <div class="row" align="center" id="addcard">
+
+    </div>
+
+</div>
+
+<script>
+    //////////////////////// add image card using jquery////////////////////
+    metallimg = ['arm2', 'pipebest', 'list_2.jpg',  'prof1', 'prof2', 'pipe1']
+    for (a of metallimg) {
+        var aa = '<div class="col-md-2"><div class="card customsize" style="border-radius: 8px;"> <img  class="card-img-top customimg" src="images/' + a + '.jpg" ></div></div>';
+        $("#addcard").append(aa)
+    }       
+</script>

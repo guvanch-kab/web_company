@@ -1,0 +1,125 @@
+.footer > li {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#footer {
+  background-color: #4f75bd;
+}
+
+.container-footer {
+  padding: 30px 0 30px 0;
+  background: #4f75bd;
+  z-index: 100;
+}
+
+.color-primary {
+  color: white;
+}
+
+.footer > ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer > li {
+  padding-bottom: 10px;
+  font-size: 15px !important;
+}
+
+.container-top {
+  max-width: 1200px;
+  margin: 0 auto; /* Center the container */
+  display: flex;
+  flex-wrap: wrap; /* Ensure responsiveness */
+  justify-content: space-between;
+}
+
+.container-bottom-footer {
+  background: #4f75bd;
+  border-top: white 1px solid;
+  padding-top: 15px;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+.middle p,
+.left p,
+.right p {
+  font-size: 20px;
+  color: #fff;
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+/* Additional Enhancements */
+.container-top > div {
+  flex: 1; /* Allow flexible width for columns */
+  min-width: 280px; /* Ensure columns don't shrink too much */
+  margin: 10px; /* Add some spacing between columns */
+}
+
+.left span,
+.right span {
+  text-align: left; /* Left align text */
+  text-align: justify; /* Justify text */
+  display: block;
+  color: #d9dbdf; /* Set text color to black */
+  font-size: 14px;
+}
+
+.contact-info {
+  padding-left: 0; /* Remove default padding */
+}
+
+.contact-info li {
+  padding-bottom: 10px;
+  text-align: left; /* Align text to the left */
+  color: #d9dbdf; /* Set text color to black */
+}
+
+@media (max-width: 768px) {
+  .middle,
+  .left,
+  .right {
+    text-align: left; /* Left align text on smaller screens */
+  }
+}
+.left {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.footer-col {
+  float: left;
+  width: auto;
+  padding: 10px;
+  height: auto; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.footer-row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .footer-col {
+    width: 100%;
+
+  }
+  .footer_all_right{
+    padding-bottom: 5rem !important;
+    font-size: 14px;
+  }
+}
+

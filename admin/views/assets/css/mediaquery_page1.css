@@ -1,0 +1,132 @@
+/* Tabloların genel stilleri */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table thead th {
+    white-space: nowrap;
+}
+
+/* Küçük cihazlar (telefonlar) için temel stiller */
+@media (max-width: 575.98px) {
+    .card {
+        margin: 10px;
+    }
+    .card-header {
+        text-align: center;
+    }
+    .dataTables_filter {
+        text-align: center;
+    }
+    .dataTables_info {
+        text-align: center;
+    }
+    .table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .table th, .table td {
+        font-size: 12px; /* Küçük ekranlarda font boyutunu küçültüyoruz */
+    }
+}
+
+/* Küçük cihazlar (tabletler) için stiller */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .card {
+        margin: 15px;
+    }
+    .card-header {
+        text-align: left;
+    }
+    .dataTables_filter {
+        text-align: right;
+    }
+    .dataTables_info {
+        text-align: left;
+    }
+    .table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .table th, .table td {
+        font-size: 14px; /* Küçük tabletlerde font boyutunu biraz büyütüyoruz */
+    }
+}
+
+/* Orta büyüklükte cihazlar (daha büyük tabletler veya küçük dizüstü bilgisayarlar) için stiller */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .card {
+        margin: 20px;
+    }
+    .card-header {
+        text-align: left;
+    }
+    .dataTables_filter {
+        text-align: right;
+    }
+    .dataTables_info {
+        text-align: left;
+    }
+    .table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .table th, .table td {
+        font-size: 16px; /* Orta boyutlu cihazlarda font boyutunu normal tutuyoruz */
+    }
+}
+
+/* Büyük cihazlar (dizüstü bilgisayarlar ve daha büyük) için stiller */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .card {
+        margin: 25px;
+    }
+    .card-header {
+        text-align: left;
+    }
+    .dataTables_filter {
+        text-align: right;
+    }
+    .dataTables_info {
+        text-align: left;
+    }
+    .table {
+        display: table;
+        width: 100%;
+    }
+    .table th, .table td {
+        font-size: 18px; /* Büyük cihazlarda font boyutunu biraz daha büyütüyoruz */
+    }
+}
+
+/* Ekstra büyük cihazlar (büyük masaüstü ekranlar) için stiller */
+@media (min-width: 1200px) {
+    .card {
+        margin: 30px;
+    }
+    .card-header {
+        text-align: left;
+        font-size: 24px; /* Ekstra büyük cihazlarda başlık font boyutunu büyütüyoruz */
+    }
+    .dataTables_filter {
+        text-align: right;
+        font-size: 16px; /* Ekstra büyük cihazlarda arama kutusu font boyutunu büyütüyoruz */
+    }
+    .dataTables_info {
+        text-align: left;
+        font-size: 16px; /* Ekstra büyük cihazlarda bilgi alanı font boyutunu büyütüyoruz */
+    }
+    .table {
+        display: table;
+        width: 100%;
+    }
+    .table th, .table td {
+        font-size: 20px; /* Ekstra büyük cihazlarda tablo hücrelerinin font boyutunu büyütüyoruz */
+    }
+}

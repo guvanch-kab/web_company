@@ -1,0 +1,50 @@
+
+<div class="container">    
+        <div class="col-12" style="margin-top: -10px; line-height: 50px;  color:#2469bd; font-weight: 700; font-size:18px"> ŞIFER / PROFNOSTIL</div>     
+</div>
+
+ <div class="newsContentContainer" style="padding:14px;">
+    <div class="newsHeaderWrapper">
+    </div>
+</div>
+
+<div class="accordion_place" style="padding:15px; display: flex;flex-direction: column; width: 100%;">
+    
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Ürünlerin bilgilerini içeren bir dizi oluşturuyoruz
+        var items = [
+            { imgSrc: "pages/images/sifer/cerepisa.jpg", title: "PROFNOSTIL adaty 80x75" },
+            { imgSrc: "pages/images/sifer/profnos.jpg", title: "PROFNOSTIL beýikle 78x68" },
+            { imgSrc: "pages/images/sifer/garmoska.jpg", title: "PROFNOSTIL kiçi 94x90" },
+            { imgSrc: "pages/images/sifer/cerepisa.jpg", title: "PROFNOSTIL uly 90x84" }
+        ];
+    
+        // Her bir öğeyi döngüyle oluşturup DOM'a ekliyoruz
+        $.each(items, function(index, item) {
+            var newsItemHtml = `
+                <div class="newsItem">
+                    <img src="${item.imgSrc}" alt="">
+                    <h5 class="show_detail">${item.title}</h5> 
+                </div>
+            `;
+            $('.newsHeaderWrapper').append(newsItemHtml);
+        });
+    
+        $('.newsHeaderWrapper').on('click', '.show_detail', function(e) {
+            e.preventDefault(); 
+            var clickedTitle = $(this).text();
+        
+            $(".accordion_place").load("pages/sifer/sifer_accordion.html", function() {
+                $(".accordion_prof").contents().filter(function() {
+                    return this.nodeType === 3;
+                }).first().replaceWith(clickedTitle + " ");
+            });
+        });
+        
+        
+    });
+    
+</script>

@@ -1,0 +1,62 @@
+#owl-demo .item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 500px; /* Maksimum yüksekliği belirleyin */
+  object-fit: cover; /* Resmin içeriğini kesmeden kaplar */
+}
+.owl_price {
+  margin-left:0px;
+  color: #ffff46;  /* width: 95%; */
+  height: auto;
+  max-height: 500px; /* Maksimum yüksekliği belirleyin */
+  object-fit: cover; /* Resmin içeriğini kesmeden kaplar */
+  padding:10px; /* Kenarlık ve içerik arasında boşluk oluşturun */
+  margin-top: 0px;
+  border: none;
+  background-color:#4f75bd;
+
+}
+
+
+#owl-demo .item {
+  display: flex; /* Flex konteyneri olarak ayarla */
+  justify-content: center; /* Resimleri yatay olarak ortala */
+  align-items: center; /* Resimleri dikey olarak ortala */
+}
+
+/* Sol ve sağ navigasyon butonları için stiller */
+
+
+/* Sol butonu ayarla */
+.owl-prev {
+  left: 0px; /* Sol kenara yerleştir */
+}
+
+/* Sağ butonu ayarla */
+.owl-next {
+  right: 0px; /* Sağ kenara yerleştir */
+}
+
+/* Butonlara hover efekti ekle */
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Butonlara içerik ortalaması ekle */
+.owl-prev::before,
+.owl-next::before {
+  font-family: "Font Awesome 5 Free"; /* Font Awesome kullanacağız */
+  font-weight: 900; /* Kalın font */
+}
+
+/* Sol butonu ayarla */
+.owl-prev::before {
+  content: "\f053"; /* Font Awesome sol ok simgesi */
+}
+
+/* Sağ butonu ayarla */
+.owl-next::before {
+  content: "\f054"; /* Font Awesome sağ ok simgesi */
+}

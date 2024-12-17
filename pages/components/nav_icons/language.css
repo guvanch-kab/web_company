@@ -1,0 +1,126 @@
+top_icons_nav{
+    z-index: 5;
+ }
+#diller {
+    position: relative;
+ }
+ #diller:hover .dropdown-langu{
+    display: block;
+    z-index: 5;
+ }
+.dropdown-langu {
+    display: none;
+    top: 100%;
+    right: 0;
+    position: absolute;
+    height: 6rem;
+    width: 5rem;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    z-index: 5;
+}
+.dropdown-content-langu{
+    display: flex;
+    flex-direction: column;
+}
+.svg-p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 0.5rem;
+}
+.p-content{
+    height: 100%;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+.flag{
+    height: 1.3rem;
+    width: 1.3rem;
+}
+.mobile-footer{
+    z-index: 5;
+ }
+ #diller-m {
+    position: relative;
+ }
+ #diller-m:hover .dropdown-langu-m{
+    display: block;
+    z-index: 5;
+ }
+.dropdown-langu-m {
+    position: absolute;
+    display: none;
+    bottom: 100%;
+    left: 0;
+    height: 5rem;
+    width: 5rem;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    z-index: 5;
+}
+.svg-p-m{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 1.6rem;
+}
+.p-content-m{
+    height: 100%;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
+    padding-top: 0.9rem;
+    margin-left: 1rem;
+}
+.flag-m{
+    height: 1.3rem;
+    width: 1.3rem;
+}
+
+/* langu hover part */
+#container-dropdown-langu-hover{
+    position: relative;
+}
+.container-dropdown-langu {
+    position: relative;
+    height: 6rem;
+    width: 5rem;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+.dropdown-content-langu{
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+}
+.svg-p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin: 0.7rem 0;
+    padding: 0 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.p-content{
+    font-size: 14px;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
+}
+.flag{
+    height: 1.2rem;
+    width: 1.2rem;

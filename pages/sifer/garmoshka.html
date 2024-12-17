@@ -1,0 +1,31 @@
+
+<div class="container">    
+        <div class="col-12" style="margin-top: -10px; line-height: 50px;  color:#2469bd; font-weight: 700; font-size:18px"> ŞIFER / GARMOSKA</div>     
+</div>
+
+ <div class="newsContentContainer" style="padding:14px;">
+    <div class="newsHeaderWrapper">
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // Ürünlerin bilgilerini içeren bir dizi oluşturuyoruz
+        var items = [
+        { imgSrc: "pages/images/sifer/cerepisa.jpg", title: "GARMOSKA ADATY 90x84" },
+        { imgSrc: "pages/images/sifer/profnos.jpg", title: "GARMOSKA uly 84x70" }
+          ];
+    
+        // Her bir öğeyi döngüyle oluşturup DOM'a ekliyoruz
+        $.each(items, function(index, item) {
+            var newsItemHtml = `
+                <div class="newsItem">
+                    <img src="${item.imgSrc}" alt="">
+                    <h5>${item.title}</h5> 
+                </div>
+            `;
+            // Oluşturulan HTML'i 'newsContentContainer' içerisine ekliyoruz
+            $('.newsHeaderWrapper').append(newsItemHtml);
+        });
+    });
+    
+</script>

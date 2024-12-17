@@ -1,0 +1,152 @@
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f4f8;  /* Daha açık bir arka plan rengi */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Container styling */
+.container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Header styling */
+h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+hr.underline {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+}
+.left_label{
+margin-bottom: 8px !important;
+}
+.input_label{
+    margin-top: 5px !important;
+    }
+    
+input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #ffffff;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #6b73ff;
+    outline: none;
+}
+
+/* Button styling */
+.button_giris {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    background: #2e84d1;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #64a4dd;
+}
+
+/* Link styling */
+a {
+    display: block;
+    margin-top: 20px;
+    color: #6b73ff;
+    text-decoration: none !important;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #000dff;
+    text-decoration: none;
+}
+
+.ozel a{
+    font-size: 14px;
+    font-weight:500;
+    color:#acac59;
+    text-decoration: none;
+    margin-top: 8px;
+}
+.ozel a:hover{
+    color: #56462c;
+}
+
+.a_ozel{
+    font-size: 18px;
+    font-weight:500;
+    color:#898945;
+    text-decoration: none;
+    margin-top:-9px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flex-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-row span, .flex-row a {
+        margin-right: 5px;
+        text-decoration: none;
+        padding: 0 4px;
+    }
+    .flex-row span, .flex-row a:hover {
+        margin-right: 5px;
+        text-decoration: none;
+        padding: 0 4px;
+        color: #56462c;
+    }

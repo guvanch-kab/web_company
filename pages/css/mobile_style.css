@@ -1,0 +1,168 @@
+.mobile-ul  {
+  bottom: 0px;
+  padding: 10px;
+  margin: 0px;
+
+}
+@media only screen and  (max-width: 992px) {
+  .mobile-ul  {
+    font-size: 15px;
+    color: #868686;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px;
+    z-index: 4;
+    background-color:#fff;
+    list-style-type: none;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+ 
+  }
+
+
+}
+.centered {
+  text-align: center;
+  width: 100%;
+}
+.mobile-list ul li a.active, .mobile-list ul li a:hover {
+  color: #3366cc !important;
+}
+.mobile-list ul li a, .mobile-list ul li a {
+  color: #868686 !important;
+}
+
+@media (max-width:600px) {
+    .icon-bar i {
+    font-size:18px;
+  
+    }
+    .icon-bar .badge {
+font-size: 9px;
+    }
+    .top_icons_nav{
+        display: none;
+    }
+  }
+
+  @media (min-width:601px) {
+    .foot_cont {
+   display: none;
+  
+    }
+  }
+
+  #login_name {
+    pointer-events: none; /* Tıklama olayını tamamen engeller */
+    cursor: default; /* Fare işaretçisini normal bir şekle getirir */
+  }     
+  
+  .search-dropdown {
+      position: relative;
+      width: 100%;
+  }
+  
+  .search-results-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      
+      width: 100%;
+      z-index: 1000;
+      max-height: 300px; /* Maksimum yükseklik */
+      overflow-y: auto; /* Taşan sonuçlar için kaydırma */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+  }
+  
+  .search-results-list li {
+      display: flex; /* Resim ve metni yan yana koymak için */
+      align-items: center; /* Dikey ortalama */
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      color: #333;
+  }
+  
+  .search-results-list li:last-child {
+      border-bottom: none;
+  }
+  
+  .search-results-list li:hover {
+      background-color: #f8f8f8;
+  }
+  
+  .search-results-list img {
+      width: 40px; /* Resim boyutu */
+      height: 40px; /* Resim boyutu */
+      object-fit: cover; /* Resmi kırpmadan sığdır */
+      border-radius: 4px; /* Köşeleri yuvarla */
+      margin-right: 10px; /* Metinle araya boşluk ekle */
+  }
+  
+  .search-results-list .search-item-name {
+      flex: 1; /* Metin alanını genişlet */
+      overflow: hidden; /* Taşan metni gizle */
+      text-overflow: ellipsis; /* Metni "..." ile kısalt */
+      white-space: nowrap; /* Tek satırda tut */
+  }   
+  
+  
+/*    meadi query sargytlar*/
+
+@media (max-width: 768px){
+#targetTable tbody tr td{
+  width: 100%;
+  text-align: right !important;
+  padding-left: 8px;
+  margin: 0;
+  font-size:13px !important;
+  font-weight: normal !important;
+}
+#targetTable .metal_table_input{
+  margin-right: 0 !important;
+  width: 40% !important;
+  padding-left: 10px !important;
+}
+#targetTable tbody tr td:nth-child(3){
+  font-weight: bold !important;
+  font-size:14px !important;
+}
+#targetTable tbody tr td:nth-child(6){
+  font-weight: bold !important;
+  font-size:14px !important;
+}
+#targetTable tbody tr td:nth-child(2)::before{
+  content: 'Haryt ady' !important;
+  font-weight: normal;
+}
+#targetTable tbody tr td:nth-child(3)::before{
+  content: 'Bahasy' !important;
+  font-weight: normal;
+}
+#targetTable tbody tr td:nth-child(5)::before{
+ content: 'Sany' !important;
+  font-weight: normal;
+}
+#targetTable tbody tr td:nth-child(6)::before{
+  content: 'Jemi bahasy' !important;
+  font-weight: normal;
+}
+#targetTable tbody tr td:nth-child(7)::before{
+  content: 'Harydy poz' !important;
+  font-weight: normal;
+}
+#order_form{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+}

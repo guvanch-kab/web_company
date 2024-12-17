@@ -1,0 +1,570 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+.single_product_page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+}
+.single_product_page .image_side{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 40%;
+  width: 100%;
+}
+.single_product_page .image_side .mineImge{
+  width: 100%;
+  padding: 1rem;
+}
+.single_product_page .image_side .mineImge img{
+  max-width: 100%;
+  cursor: pointer;
+}
+.single_product_page .image_side .litle_images{
+  display: flex;
+  max-height: 3rem;
+  width: 100%;
+}
+.single_product_page .image_side .litle_images img{
+  display: flex;
+  height: 100%;
+  padding: 0.1rem;
+  border: #eee 1px solid;
+  cursor: pointer;
+}
+.single_product_page .image_side .litle_images img:not(img:first-child){
+  margin-left: 1rem;
+}
+.single_product_page .dtail_side {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  max-height: 60%;
+  width: 100%;
+  padding: 0 1rem;
+}
+.top_single_page {
+  display: flex;
+}
+.rating_like_compare {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.4rem 0;
+}
+.rating_like_compare .like_compare i {
+  padding: 0.5rem;
+  border: 1px solid #8c8c8c;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.product_title {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 0.2rem;
+}
+.product_description {
+  font-size: 0.9rem;
+  color: #000;
+  margin-bottom: 0.2rem;
+}
+.stoc_status {
+  width: 100%;
+  text-align: right;
+  margin: 0.7rem 0 0.2rem 0;
+}
+.stoc_status .stoc_have {
+  background-color: #c6efce;
+  padding: 0.5rem;
+  border-radius: 0.1rem;
+}
+.stoc_status .stoc_have i,
+.stoc_status .stoc_have {
+  color: #006100;
+}
+.stoc_status .stoc_no {
+  background-color: #ffc7ce;
+  padding: 0.5rem;
+  border-radius: 0.1rem;
+}
+.stoc_status .stoc_no i,
+.stoc_status {
+  color: #9c0006;
+}
+
+.price_panel {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+.price {
+  display: flex;
+  justify-content: space-between;
+}
+.sale_price {
+  font-size: 0.8rem;
+  color: #8c8c8c;
+  font-weight: 600;
+  text-decoration: line-through;
+}
+.current_price {
+  font-size: 1.7rem;
+  color: #000;
+  font-weight: 700;
+}
+.price_side .lable,
+.lable_total_price .lable {
+  font-size: 1.5rem;
+  color: #000;
+}
+.lable_sale_price {
+  font-size: 1.7rem;
+  color: #000;
+  font-weight: 700;
+}
+.basket {
+  position: relative;
+  width: 10rem;
+}
+.add_basket {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.3rem;
+  background-color: orangered;
+  border-radius: 0.2rem;
+  top: 0;
+  right: 0;
+}
+.add_basket i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.counter {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 2.3rem;
+  background-color: orangered;
+  border-radius: 0.2rem;
+  top: 0;
+  right: 0;
+}
+.counter input {
+  text-align: center;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: orangered;
+  max-width: 50%;
+  width: 100%;
+}
+.counter i {
+  cursor: pointer;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.counter .fa-solid-left {
+  margin-left: 1rem;
+  rotate: 90deg;
+}
+.counter .fa-solid-right {
+  margin-right: 1rem;
+  rotate: -270deg;
+}
+
+.terms_of_use {
+  width: 100%;
+}
+.accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.accordion:hover {
+  background-color: #ccc;
+}
+.accordion span {
+  font-size: 18px;
+  transition: all 0.2s;
+  padding: 0;
+}
+.active span {
+  transform: rotate(-45deg);
+}
+.panel {
+  padding: 0 10px;
+  height: 0;
+  background-color: white;
+  overflow: hidden;
+  transition: height all 4s;
+}
+.panel p {
+  font-size: 13px;
+  margin: 0.2rem 0;
+}
+.active + .panel {
+  height: auto;
+  border-top: none;
+  border: 1px solid #eee;
+  margin-bottom: 2px;
+  transition: height all 4s;
+}
+.price_panel {
+  width: 100%;
+}
+.harakter_side {
+  margin-top: 2rem;
+}
+.tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.tab .tablinks {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.tab .tablinks:hover {
+  background-color: #ddd;
+}
+.tab .tablinks.active {
+  background-color: #ccc;
+}
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+.tabcontent.active {
+  display: block;
+}
+
+
+
+.topModal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.8;
+  z-index: 100;
+}
+.topModal .dtail_side{
+  display: none;
+}
+.topModal .image_side .litle_images{
+  display: none;
+}
+.topModal .image_side{
+  margin: auto;
+  background-color: #006100;
+  max-height: 100%;
+  height: 80%;
+  width: auto;
+}
+.topModal .image_side .mineImge{
+  width: 100%;
+  height: 100%;
+}
+.topModal .image_side .mineImge img{
+  width: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+
+
+
+
+
+
+
+
+
+/*/////////////   filter_area   ////////////////*/
+.filter_area{
+  margin-top: 2rem;
+  width: 100%;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+}
+.accordionFilter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 1rem;
+}
+.accordionFilter:hover {
+  background-color: #ccc;
+}
+.accordionFilter span {
+  font-size: 18px;
+  transition: all 0.2s;
+  padding: 0;
+  transform: rotate(-45deg)
+}
+.activeFilter span {
+  transform: rotate(0deg);
+}
+.panelFilter {
+  padding: 0 10px;
+  height: auto;
+  background-color: white;
+  overflow: hidden;
+}
+.activeFilter + .panelFilter {
+  height: 0;
+  border-top: none;
+  border: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+.range-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem 0 2rem 0;
+}
+.range-container input[type="number"] {
+  width: 80px;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 14px;
+}
+.slider {
+  position: relative;
+  width: 200px;
+}
+.slider input[type="range"] {
+  position: absolute;
+  width: 100%;
+  appearance: none;
+  background: none;
+  pointer-events: none;
+}
+.slider input[type="range"]::-webkit-slider-thumb {
+  pointer-events: auto;
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  background: blue;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+.slider input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: lightgray;
+  border-radius: 2px;
+}
+.slider input[type="range"]:nth-child(2)::before {
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: blue;
+  z-index: -1;
+  border-radius: 2px;
+}
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  gap: 10px;
+}
+.tag {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  color: #333;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+.tag:hover {
+  background-color: #ddd;
+}
+.tag.active {
+  background-color: #4a90e2;
+  color: white;
+}
+.applyFilterDiv{
+  margin: 1rem;
+}
+.applyFilter{
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 1rem;
+}
+.removeFilterDiv{
+  margin: 0 1rem 1rem 1rem;
+}
+.removeFilter{
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: #4a90e2;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+
+/*            modal images                  */
+.imageModal{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 105;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.modalImgewrapper{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  background-color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+  max-height: 95%;
+  height: 100%;
+  max-width: 75%;
+  width: 100%;
+}
+.mySlider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  max-height: 95%;
+  height: 100%;
+  max-width: 100%;
+  width: 80%;
+  margin: auto;
+  margin-top: 0;
+}
+.mySlider img{
+  position: absolute;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  max-width: 70%;
+}
+.mySlider img:not(img:first-child){
+  display: none;
+}
+.fa-xmarkModal{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #9c0006;
+}
+.modalBTN{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  background-color: #444;
+  border-radius: 0.2rem;
+  z-index: 120;
+}
+.modalBTN i{
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 120;
+}
+@media (max-width: 1350px){
+  .mySlider img{
+    max-width: 100%;
+  }
+}
+@media (max-width: 900px){
+  .modalImgewrapper{
+    max-width: 100%;
+    max-height: 90%;
+    padding: 2rem;
+  }
+  .mySlider{
+    width: 100%;
+  }
+}
+@media (max-width: 600px){
+  .modalImgewrapper{
+    max-height: 70%;
+  }
+  .modalBTN i{
+    font-size: 0.9rem;
+  }
+  .fa-xmarkModal{
+    font-size: 1.3rem;
+  }
+}

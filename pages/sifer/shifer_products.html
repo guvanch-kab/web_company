@@ -1,0 +1,173 @@
+<style>
+    #sifer_ady, #count_roofs{
+        color:#606060; font-size:16px;font-family: 'Arial', sans-serif;text-transform: lowercase;letter-spacing: 0.5px;font-weight: 600;
+padding-right: 4px;
+    }
+    .separator {
+        display: inline-block;
+        width: 1px; 
+        height: 20px; 
+        background-color: #000; 
+        margin: 0 5px; 
+    }
+</style>
+<div class="container shifer">    
+        <div class="col-12" style="margin-top: -10px; line-height: 50px;  ">
+<a href="#" class="shifer_products" style="color:#508fde; font:bold; font-size:18px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> ŞIFERLER  </a>
+
+<span class="separator" style="display: none;"></span>
+<span id="sifer_ady"></span>
+<span class="separator" style="display: none;"></span>
+             <span id="count_roofs"></span>
+             
+            </div>     
+</div>
+<div class="shifer_main_container" style="margin: 0; padding: 0; display: flex; justify-content: flex-start; flex-direction: column;">
+
+</div>
+
+<div class="newsContentContainer" style="padding:14px;">
+    <div class="newsHeaderWrapper">
+
+        <div class="newsItem">
+            <img src="pages/images/sifer/cerepisa.png" alt="">
+            <h5> ÇEREPISA</h5> 
+            <div class="card-footer w-100 bg-white">
+                <a href="#" class="btn btn-primary cherep" id="cherep" >Görnüşler</a>
+              </div>
+        </div>
+
+        <div class="newsItem">
+            <img src="pages/images/sifer/profnos.png" alt="">
+            <h5> PROFNOSTIL</h5> 
+            <div class="card-footer w-100 bg-white" >
+                <a href="#" class="btn btn-primary profno" id="profno">Görnüşler</a>
+              </div>
+        </div>
+
+        <div class="newsItem">
+            <img src="pages/images/sifer/garmoska.png" alt="">
+            <h5> GARMOŞKA</h5> 
+            <div class="card-footer w-100 bg-white">
+                <a href="#" class="btn btn-primary garmosh" id="garmosh">Görnüşler</a>
+              </div>
+        </div> 
+    </div>
+</div>
+
+<div class="accordion_place" style="padding:15px; display: flex;flex-direction: column; width: 100%;">
+ 
+</div>
+
+<script>
+
+    $(document).ready(function() {  
+
+        $(".shifer_products").click(function(event) {
+            event.preventDefault();     
+            // Yalnızca içeriği yeniden yükle
+            $(".place_area").load('pages/sifer/shifer_products.html', function(response, status, xhr) {
+                if (status == "error") {
+                   
+                    alert("Sayfa yüklenemedi: " + xhr.status + " " + xhr.statusText);
+                }
+            });
+        });
+
+        $('.btn').on('click', function(e) {
+            e.preventDefault(); // Linkin varsayilan davranişini engelle     
+             var hrefid = $(this).attr('id');
+  
+        $.ajax({
+            url: 'pages/sifer/shifer.php', // Sunucu tarafındaki PHP dosyası
+            method: 'POST',
+            data: { page: hrefid },
+            dataType: 'json', // JSON formatında veri beklediğimizi belirtiyoruz
+            success: function(response) {
+                
+                if (response && response.items) {                    
+                     
+                    $('.newsHeaderWrapper').empty();                    
+                    $.each(response.items, function(index, item) {
+                        var newsItemHtml = `
+                            <div class="newsItem">
+                                <img src="${item.imgSrc}" alt="">
+                                <h5 class="show_detail">${item.title} &nbsp; ${item.size}</h5> 
+                            </div>
+                        `;                       
+                        $('.newsHeaderWrapper').append(newsItemHtml);
+                       
+                    });
+                    $('.separator').show(); // Tüm separatorları göster
+                    $('#sifer_ady').text(response.items[0].title); 
+                    $('#count_roofs').text(response.rowCount + " sany");
+              
+              
+                    $('.newsHeaderWrapper').on('click', '.show_detail', function(e) {
+                        e.preventDefault();
+
+                        var clickedTitle = $(this).text();
+                       // var roof_price='';
+                    
+                        $(".accordion_place").load("pages/sifer/sifer_accordion.html", function() {
+                            $(".accordion_prof").text(clickedTitle);
+
+                            let addedThickness = [];
+                            let addedColors = [];
+                            var radioButtonsHtml = '';
+                            
+                            $.each(response.items, function(index, item) {
+                                // Eğer thickness daha önce eklenmemişse
+                                if (!addedThickness.includes(item.thickness)) {
+                                    radioButtonsHtml += `
+                                        <div class="radio_size" style="padding-left: 15px;">
+                                            <input class="form-check-input" type="radio" id="price-${index}" name="priceOptions" value="${item.thickness}">
+                                            <label class="form-check-label" for="price-${index}">${item.title} - ${item.thickness}</label>
+                                        </div>
+                                    `;                          
+
+                                    addedThickness.push(item.thickness);
+                                }
+                              //  roof_price+=`
+                              //  <div class="radio_size" style="padding-left: 15px;">                                   
+                                 //    ${item.price} 
+                              //  </div>
+                             //   `;
+                            });                             
+                            $.each(response.items, function(index, item) {
+                                // Eğer color_name daha önce eklenmemişse
+                                if (!addedColors.includes(item.color_code)) {
+                                    var colorDivsHtml = `
+        <div class="box_custom" data-toggle="tooltip" data-placement="top" title="${item.color_name}" style="background-color: ${item.color_code};" data-original-color="${item.color_code}"></div>
+                                    `;                            
+                                    $('#colorContainer').append(colorDivsHtml);
+                            
+                                    // Eklenen color_name değerini diziye ekle
+                                    addedColors.push(item.color_code);
+                                }
+                            });
+
+                            $('#thickness_roof').html(radioButtonsHtml); // radioButtonsContainer, HTML'de tanımladığınız bir id olmalıdır
+                          
+
+                        });                     
+                    });
+              
+                } else if (response.error) {
+                    console.log(response.error);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX hatası: " + error);
+            }
+        });    
+
+        });        
+    });
+    </script>
+<script src="pages/sifer/call_submenu_roofs.js"></script>
+
+
+    
+
+

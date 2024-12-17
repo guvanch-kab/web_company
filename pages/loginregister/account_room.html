@@ -1,0 +1,232 @@
+<style>
+    .shahsy_room{
+    display: flex;
+    }
+    .shahsy_room_sol{
+        min-width: 25%;
+        width: 100%;
+    }
+    .shahsy_room_sag{
+        min-width: 75%;
+        width: 100%;
+    }
+    .profil_oz{
+    height: 45px;
+    width: 100%;
+    font-size: 13px;
+    color:#7c7c7c;
+    border:1px solid #d4d4d4;
+    }
+    ul li a:hover {
+    color: #007bff;
+    }
+    ul li a.active {
+    color: #007bff;
+    font-weight: bold;
+    }
+    #personel_db{
+    padding: 10px;
+    height:auto;
+    background-color:#fff;
+    margin-top:5px; 
+    }
+    .row_sargytlar{
+        padding: 10px 0;
+    }
+    .coll_1,
+    .my__name{
+        width: 30%;
+    }
+    .coll_2,
+    .my__price{
+        width: 10%;
+    }
+    .coll_3,
+    .my__quantity{
+        width: 11%;
+    }
+    .coll_4,
+    .my__price2{
+        width: 10%;
+    }
+    .coll_5,
+    .my__date{
+        width: 16%;
+    }
+    .coll_6,
+    .my__date2{
+        width: 16%;
+    }
+    .coll_7,
+    .hide_close{
+        width: 7%;
+    }
+    .my__name,
+        .my__price,
+        .my__price2,
+        .my__date,
+        .my__date2,
+        .my__quantity,
+        .hide_close{
+        font-size: 14px;
+        }
+    @media (max-width: 1350px) {
+        .my__name,
+        .my__price,
+        .my__price2,
+        .my__date,
+        .my__date2,
+        .my__quantity,
+        .hide_close{
+        font-size: 12px;
+        }
+    }
+    @media (max-width: 1000px) {
+        .shahsy_room{
+        flex-direction: column;
+        margin: 0 20px;
+        }
+    }
+    @media (max-width: 760px) {
+        .shahsy_room{
+        flex-direction: column;
+        margin: 0 20px;
+        }
+        .shahsy_room input{
+            width: 100%;
+        }
+        .to__hide {
+        display: none !important;
+        }
+        .row_sargytlar{
+            width: 100%;
+        }
+        .my__name,
+        .my__price,
+        .my__price2,
+        .my__date,
+        .my__date2,
+        .my__quantity,
+        .hide_close{
+        padding: 10px 0;
+        position: relative;
+        text-align: right;
+        width: 100%;
+        border-bottom: 1px dotted #e1e1c4;
+        }
+        .my__name::before{
+        content: 'Haryt ady' !important;
+        }
+        .my__price::before{
+        content: 'Bahasy' !important;
+        }
+        .my__quantity::before{
+        content: 'Sany'!important ;
+        }
+        .my__price2::before{
+        content: 'Jemi baha' !important;
+        }
+        .my__date::before{
+        content: 'Sargyt sene ' !important;
+        }
+        .my__date2::before{
+        content: 'Ugr sene' !important;
+        }
+        .hide_close::before{
+        content: 'Ýap' !important;
+        }
+        .my__name::before,
+        .my__price::before,
+        .my__quantity::before,
+        .my__price2::before,
+        .my__date::before,
+        .my__date2::before,
+        .hide_close::before {
+        content: 'Haryt ady';
+        text-align: left;
+        position: absolute;
+        width: 50%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) ;
+        }
+        .col-12.col-md-2,
+        .col-12.col-md-1{
+        border-bottom: 0.3px dotted #868686;
+        }
+        .col-12.col-md-1.hide_close{
+        border-bottom: none;
+        }
+    }
+ </style>
+
+
+        
+<div class="shahsy_room">
+    <div class="shahsy_room_sol" style="height:auto;  border:none !important; background-color:#fff !important;">
+       <ul style="background-color: #fff; list-style: none; padding:15px;margin-top:0px; height: auto; ">
+          <li class="" style="color:#6b6b6b; font-family: Arial, sans-serif; ">
+             <b>Şahsy otag</b></a>
+          </li>
+          <li class="border-bottom py-3"><a href="#" class="account_profile" id=""><i class="fas fa-user mr-2"></i>Profilim</a></li>
+          <li class="border-bottom py-3"><a href="#" class="account_orders" id=""><i class="fas fa-list-check mr-2"></i>Sargytlarym</a></li>
+          <li class="py-3"><a href="#" class="account_logout" id=""><i class="fas fa-sign-out-alt mr-2"></i>Çyk</a></li>
+       </ul>
+    </div>
+    <div class="shahsy_room_sag" id="personel_db">
+    </div>
+ </div>
+        
+        <script>
+            $(function(){
+
+
+                $('#shopping-link').on('click', function() {
+
+
+                    
+                })
+
+                
+            $("#personel_db").load("pages/loginregister/account_profile.html");
+
+            $('.account_orders, .account_profile').on('click', function(e) {
+                e.preventDefault(); 
+            
+                $("#personel_db").empty(); // Clear the content
+            
+              
+                if ($(this).hasClass('account_orders')) {
+                    $("#personel_db").load("pages/loginregister/account_orders.php");
+                } 
+               else if ($(this).hasClass('account_profile')) {
+                $("#personel_db").load("pages/loginregister/account_profile.html");
+                   
+               }
+            })              
+
+            });
+            
+    $(".account_logout").click(function(event){
+        event.preventDefault(); // Sayfanın yenilenmesini engelle
+        $.ajax({           
+            url: '../../user_exit.php',
+            type: 'POST',
+            success: function(response) {
+              
+                var data = JSON.parse(response);
+                if (data.status === 'success') {                    
+                    window.location.href = 'index.html';
+                }
+            },
+            error: function() {
+                alert('Failed to logout ');
+            }
+        });
+    });
+            
+        </script>
+
+        <script src="pages/loginregister/call_account_session.js">   
+            
+        </script>

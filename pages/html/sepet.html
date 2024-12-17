@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alışveriş Sepeti</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sepet_css_js/sepet.css">
+    <link rel="stylesheet" href="../../css/fontawesome-free/css/all.min.css">
+</head>
+<body class="">
+
+
+
+    <div class="container sepet_prod">
+   
+        <div class="cart">
+            <table class="sepetprod">
+                <thead>
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Adet</th>
+                        <th>Fiyat</th>
+                        <th>Toplam</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Ürünler buraya eklenecek -->
+                </tbody>
+            </table>
+            <div class="cart-total">
+                <h2>Toplam Tutar: <span id="total-price">0</span> TL</h2>
+                <button id="checkout-btn">Ödeme Yap</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js_files/sepet.js"></script>
+</body>
+</html>

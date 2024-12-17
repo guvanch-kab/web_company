@@ -1,0 +1,173 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+.card-success,
+.card-success input, 
+.card-success select, 
+.card-success textarea {
+  border-color: #6b8de9;
+}
+.sargyt_formy{
+  background-color:#6b8de9 ;
+  color: #fff;
+  text-align: center;
+}
+
+th,
+td {
+  border-bottom: 1px solid #6b8de9;
+  padding: 8px;
+  text-align: center;
+  font-size: 15px;
+}
+th {
+  background-color: #6b8de9;
+  height: 45px;
+  font-size: 15px;
+  color:#fff;
+}
+.sebet_haryt_ady{
+  font-weight: 600;
+}
+.number-input {
+  display: flex;
+  align-items: center;
+}
+
+.number-input input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.number-input input[type="number"]::-webkit-outer-spin-button,
+.number-input input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.number-input button {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  border: none;
+  background-color: #f2f2f2;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 1;
+}
+
+.number-input button.minus {
+  border-radius: 4px 0 0 4px;
+}
+
+.number-input button.plus {
+  border-radius: 0 4px 4px 0;
+}
+
+.number-input button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  td:last-child {
+    border-bottom: 0;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: calc(50% - 20px);
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+  .input-number {
+    width: calc(100% - 20p);
+  }
+}
+
+#order_table {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 35px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+
+.number-input button {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 30px !important;
+  height: 30px !important;
+  margin: 0 !important;
+  border: none !important;
+  background-color: #fff !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  border-radius: 4px !important;
+  text-align: center !important;
+  line-height: 1 !important;
+}
+
+.number-input input[type="number"] {
+  width: 60px !important;
+  padding: 5px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  text-align: center !important;
+}
+
+.number-input button.minus {
+  border-radius: 4px 0 0 4px !important;
+  margin-right: 2px !important;
+}
+
+.number-input button.plus {
+  border-radius: 0 4px 4px 0 !important;
+  margin-left: 2px !important;
+}

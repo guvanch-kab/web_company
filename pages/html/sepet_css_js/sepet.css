@@ -1,0 +1,106 @@
+/* body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+} */
+
+.sepet_prod {
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+.sepet_prod:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: 500;
+}
+
+td {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.quantity-input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+#total-price {
+    font-weight: bold;
+    color: #4caf50;
+    font-size: 1.5em;
+}
+
+button {
+    padding: 10px 30px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    color: red;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+    color: darkred;
+}

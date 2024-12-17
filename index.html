@@ -1,0 +1,616 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendir</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.tmpl.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/metall_style.css">
+    <link rel="stylesheet" href="css/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../pages/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../pages/OwlCarousel/dist/assets/owl.theme.default.css">
+
+    <link rel="stylesheet" href="pages/css/fonts.css">
+    <link rel="stylesheet" href="pages/css/metall_table.css">
+    <link rel="stylesheet" href="pages/css/over_navbar.css">
+    <!-- <link rel="stylesheet" href="pages/css/sebet.css"> -->
+    <link rel="stylesheet" href="pages/css/mobile_style.css">
+    <link rel="stylesheet" href="pages/css/display_cart.css">
+    <link rel="stylesheet" href="pages/components/carousel_banner/carousel.css">
+
+    <link rel="stylesheet" href="pages/css/login_user.css"> 
+    <link rel="stylesheet" href="pages/sifer/sifer.css"> 
+    <link rel="stylesheet" href="pages/css/categories01.css">
+
+    <link rel="stylesheet" href="pages/loginregister/css/backfone.css">
+    <link rel="stylesheet" href="pages/css/selim.css">
+<style>
+    .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #007bff; /* İsteğe göre renk değiştirilebilir */
+}
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 16px;
+    animation: marquee 10s linear infinite; /* Kaydırma efekti */
+}
+
+.over_nav {
+    position: relative;
+    overflow: hidden; /* Konteyner dışına taşmayı engeller */
+}
+
+.marquee-text:hover {
+    animation-play-state: paused; /* Üzerine gelince durdur */
+}
+
+/* Kaydırma animasyonu */
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+</style>
+</head>
+
+<script>
+    $(function(){
+  
+    $(".my_place, .login_name, .userExit").css("display","none")    
+     fetch('session_user.php')
+    .then(response => response.json())  
+    .then(data => {
+        if (data && data.name) {      
+       
+        $(".my_place, .login_name, .userExit").css("display","block")
+         $(".login_name").text(data.name + '  ' + data.surname)
+         $("#login_register").hide()
+         //reload.page();
+        }
+     else {
+        document.getElementById('login_register').innerHTML = 'Login'; // Session boşsa "Guest" olarak işaretler
+    } 
+    });
+})
+</script>
+<script>
+
+    $(document).ready(function () {
+        let debounceTimer;
+        $("#search_product").keyup(function () {
+
+            clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+        // AJAX işlemleri burada
+    }, 300); // 300ms bekleme süresi
+
+            var query = $("#search_product").val().trim();
+            if (query.length > 0) {
+                $.ajax({
+                    url: "pages/search_product.php",
+                    type: "POST",
+                    data: { search_query: query },
+                    success: function (data) {                        
+                        $("#search-results").html(data);                       
+                    },
+                });
+            } else {               
+                $("#search-results").empty();
+            }
+        });
+   
+        $(document).on("click", "#search-results li", function () {
+            var selectedValue = $(this).find(".search-item-name").text().trim(); 
+            var cust_productId = $(this).data("product-id");     
+            $("#search-results").html("");            
+           
+            // $("#empty_cart, #order_table").hide() 
+            // $("#boyaglar_page").show(); 
+            // $("#select_owl, .new_goods_title, .place_area").hide();
+
+        $.ajax({
+            url: "pages/g_harytlar_link.php",
+            type: "POST",
+            data: { cust_productId: cust_productId }, 
+            
+            success: function(response) {
+                $(".add_group_links").empty().html(response);               
+                ekle();                
+            },
+            error: function() {
+                alert("Veri yüklenemedi.");
+            }
+        });   
+    });   
+    });    
+    </script>
+
+<body style="background-color: #f5f8f1;" id="index_load">
+    <div class="container-fluid space_between" style="padding: 0px 0; background-color:#4f75bd;">
+        <div class="container" style="justify-content: right;padding: 20px 0; max-width: 1500px;">
+
+        </div>
+    </div>
+
+    <div class="container-fluid space_between3 shadow" id="forLogo" style=" background-color: #fff;">
+
+        <div class="container" style="display: flex; justify-content: space-between; padding-top:8px; background-color:#fff; max-width: 1500px;">
+            <div class="">
+            <a  href="#" class="page_index active after_content" id="index"><img src="pages/images/logo/kendir_logo.png" style="width:250px;"></a>
+            </div>
+           
+            
+            <div class="search_dropdown form-inline my-2" style="display: flex; position: relative; width: 35%; margin-left: auto;">
+                <input class="form-control" id="search_product" type="search" placeholder="Gözle" aria-label="Search" style="width: 100%; padding-right: 30px;">
+                <i class="fa-solid fa-search" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color:#868686;"></i>
+
+                <ul id="search-results" class="search-results-list">
+                   
+                </ul>
+            </div>
+
+            <div class="icon-bar top_icons_nav">
+
+                <a href="#" title="Language">
+                    <i class="fas fa-globe"></i>
+                    <span class="text">Dil</span>
+                </a>
+                <a href="#" title="Location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="text">Aşgabat</span>
+                </a>
+                <a href="#" title="Shopping" id="shopping-link" class="shop_cart_click">
+                    <i class="fas fa-shopping-cart" style="font-size: 21px !important;"></i>
+                    <span style="color: #868686;" class="text" id="shopping">Sebet</span>
+                    <!-- Count Badge -->
+                    <span class="badge" id="shopping-count">0</span>
+                </a>   
+
+                 <div class="header-dropdown" >
+                    <a href="#" >
+                    <i class="fas fa-user"></i>                    
+                    <span  class="text profil">Profil</span>
+                    </a>
+
+                    <div class="header-menu" id="login_modal">
+                        <ul>
+                          <!-- Login button triggers modal -->
+                          <li><a href="#" id="login_register" style="font-weight: 600;" class="text user_guest" data-toggle="modal" data-target="#exampleModal">Login</a></li>
+                    
+                        <li><a  href="#"  id="login_name" class="text login_name" ></a></li>
+                        <span  id=""><a  href="#" id="Şahsy-otag" class="my_place" >Şahsy otag </a></span>                        
+                        <span   id=""><a  href="#" id="userExit" class="text userExit">Logout </a></span>                     
+                      </ul>                     
+                    </div>
+                  </div>                                     
+            </div>          
+        </div>  
+</div>
+    </div>    
+</div>
+
+
+<div id="modal-container">
+
+
+   
+    <div id="load_modal"></div>
+</div>
+    <script>
+        $(function(){    
+            //$("#loading-spinner").show(); 
+            $("#load_modal").load('pages/loginregister/modals/user_login_modal.php', function() {
+    
+    });
+    
+  $("#new_goods").load('pages/taze_haryt.php');   
+ $("#products").load('pages/gurlusyk.php?' + new Date().getTime());   
+    })   
+ </script>  
+ 
+<script>
+    $("#login_name").click(function(event) {
+        event.preventDefault();
+        event.stopPropagation(); 
+      });
+    $("#userExit").click(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: 'user_exit.php',
+            type: 'POST',
+            success: function(response) {              
+                var data = JSON.parse(response);
+                if (data.status === 'success') {                    
+                    window.location.href = 'index.html';
+                }
+            },
+            error: function() {
+                alert('Failed to logout ');
+            }
+        });
+    });
+</script>
+    <!------------------------------------------ start navbar & sifer place  ----------------------------------------------------------->
+         
+    <!---------------------------------------     end ---------------------------->
+    
+    <div class="" id="category_place">
+
+        <div class="over_nav" style="display: flex; align-items: center; margin: auto; max-width: 1500px; width: 100%; margin-top: 0.5rem; height: 40px; padding-left: 250px; background-color: #4f75bd; overflow: hidden;">
+            <div class="marquee-container" style="display: inline-block; position: relative;">
+                <div class="marquee-text">
+                   Reklamanyzy bu yere yazyn..!
+                </div>
+            </div>
+        </div>
+        
+        <div class="wrappwrDiv" style="display: flex; margin: auto; max-width: 1500px;width: 100%;;margin-top: 0.5rem; ">
+
+            <div class="solWrapperDiv" style="max-width: 250px; margin-bottom: 15px; width: 100%; height: auto;">
+                <div class="sidebar">
+                    <div class="toggle_color"><span class="humburger_left toggle-btn"  style="padding-left:10px;">☰</span><span class="hide_toggle_sidebar" style="padding-left:10px;"> Haryt Kategoriýasy </span></div>
+                    <ul class="menu">
+
+                        <li class="menu-item">
+                            <a href="#"  class="big_menu_a">Metalloprokat <span class="arrow" style="font-size:22px;">»</span></a>
+                            <ul id="metalloprokat" class="submenu metal_submenu">                               
+                            </ul>
+                          </li>
+
+                      <li class="menu-item">                       
+                        <a href="gurlusyk" id="GURLUŞYK-HARYTLARY" class="pages big_menu_a">Gurluşyk harytlary <span class="arrow" style="font-size:22px;">»</span></a>
+                        <ul class="submenu all_grupbalar">                           
+                        </ul>
+                      </li>
+
+                      <li class="menu-item">
+                        <a href="gurlusyk" class="pages big_menu_a" id="ELEKTRIK-HARYTLARY"> Elektrik harytlary <span class="arrow" style="font-size:22px;">»</span></a>
+                        <ul class="submenu all_grupbalar">
+                        </ul>
+                      </li>
+
+                      <li class="menu-item" >
+                        <a href="gurlusyk" class="pages big_menu_a" id="ELEKTRIK-GURALLARY"> Elektro gurallary <span class="arrow" style="font-size:22px;">»</span></a>
+                        <ul class="submenu all_grupbalar">                          
+                        </ul>
+                      </li>
+
+                        <li class="menu-item" >
+                        <a href="gurlusyk" class="pages big_menu_a" id="Boyag-gurallary"> Boýaglar <span class="arrow" style="font-size:22px;">»</span></a>
+                        <ul class="submenu all_grupbalar">                          
+                        </ul>
+                         </li>
+
+                          <li class="menu-item" >
+                            <a href="gurlusyk" class="pages big_menu_a" id="SANTEHNIKA">Santehnika <span class="arrow" style="font-size:22px;">»</span></a>
+                            <ul class="submenu all_grupbalar">                          
+                            </ul>
+                          </li>
+                          <li class="menu-item" >
+                            <a href="gurlusyk" class="pages big_menu_a" id="Alçypanlar profiller">Açypanlar profiller <span class="arrow" style="font-size:22px;">»</span></a>
+                            <ul class="submenu all_grupbalar">                          
+                            </ul>
+                          </li>
+
+                          <li class="menu-item" >
+                            <a href="gurlusyk" class="pages big_menu_a" id="Hojalyk-harytlar">Hojalyk harytlary<span class="arrow" style="font-size:22px;">»</span></a>
+                            <ul class="submenu all_grupbalar">                          
+                            </ul>
+                          </li>
+                    </ul>
+                  </div>
+            </div> <!-- End Side Bar -->
+
+            <div class="sagWrapperDiv" style="width:100%; overflow: hidden; margin-left: 0.5rem;">
+
+                <div class="place_area" style="padding-left: 25px 0; margin-bottom: 25px;  "> 
+                </div> 
+
+                <div class="" id="select_owl" style="margin-left: 2px; display: block; width: 100% !important;"></div>
+
+                <div class=""  id="products" style="padding:0;"></div>
+
+                <div class="new_goods_title" style="margin-left: 2px; padding: 10px;">
+                    <svg id="Layer_1" style="padding-left: 15px; height: 35px; fill: #e67a4d;" data-name="Layer 1" 
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.68 122.88">
+                        <title>new-product</title><path d="M50.67,81.17,15.21,62.53,5.81,73.89c12.58,6.65,24.91,13.31,37.5,20l7.36-12.68ZM23.06,15.3h.25A7.22,7.22,0,0,1,25.56,10a7.22,7.22,0,0,1,5.27-2.25V7.53a7.19,7.19,0,0,1-5.27-2.26A7.26,7.26,0,0,1,23.31,0h-.25a7.22,7.22,0,0,1-2.25,5.27,7.22,7.22,0,0,1-5.28,2.26v.24A7.26,7.26,0,0,1,20.81,10a7.22,7.22,0,0,1,2.25,5.27Zm10.53,4.36h.11a3.62,3.62,0,0,1,3.53-3.53V16A3.4,3.4,0,0,1,34.76,15a3.42,3.42,0,0,1-1.06-2.47h-.11A3.38,3.38,0,0,1,32.53,15,3.36,3.36,0,0,1,30.06,16v.12a3.6,3.6,0,0,1,3.53,3.52Zm-20,7.72h.2A6.07,6.07,0,0,1,15.7,23a6.09,6.09,0,0,1,4.43-1.89v-.21A6.09,6.09,0,0,1,15.7,19a6.09,6.09,0,0,1-1.89-4.43h-.2A6.08,6.08,0,0,1,11.71,19a6,6,0,0,1-4.42,1.89v.21A6.07,6.07,0,0,1,11.71,23a6.08,6.08,0,0,1,1.9,4.43Zm68.6-12H82a7.23,7.23,0,0,0-2.26-5.27,7.22,7.22,0,0,0-5.27-2.25V7.57a7.19,7.19,0,0,0,5.27-2.26A7.27,7.27,0,0,0,82,0h.24a7.19,7.19,0,0,0,2.26,5.27,7.19,7.19,0,0,0,5.27,2.26v.24a7.23,7.23,0,0,0-5.27,2.26,7.19,7.19,0,0,0-2.26,5.27ZM71.68,19.7h-.11A3.62,3.62,0,0,0,68,16.17v-.11A3.4,3.4,0,0,0,70.51,15a3.36,3.36,0,0,0,1.06-2.46h.11A3.38,3.38,0,0,0,72.74,15a3.38,3.38,0,0,0,2.47,1.06v.12a3.6,3.6,0,0,0-3.53,3.52Zm20,7.09h-.19a5.84,5.84,0,0,0-5.7-5.7V20.9a5.45,5.45,0,0,0,4-1.71,5.47,5.47,0,0,0,1.71-4h.19a5.5,5.5,0,0,0,1.7,4,5.5,5.5,0,0,0,4,1.7v.19a5.83,5.83,0,0,0-5.69,5.7ZM53.1,11l6.72,15.69,17.05,1.53a1.36,1.36,0,0,1,1.26,1.36,1.35,1.35,0,0,1-.48,1h0L64.74,41.86l3.81,16.68a1.53,1.53,0,0,1,0,.3,1.35,1.35,0,0,1-1.06,1.33l-.29,0a1.41,1.41,0,0,1-.77-.22L51.81,51.24,37.13,60a1.36,1.36,0,0,1-1.88-.47,1.32,1.32,0,0,1-.19-.7,1.63,1.63,0,0,1,0-.31h0l3.82-16.68L26,30.61a1.33,1.33,0,0,1,.85-2.36l17-1.52L50.56,11a1.39,1.39,0,0,1,2.54,0ZM28.83,55.44l-11,5.46,34.7,18.23L87.28,60.86,74.53,54.19l-.79-3.46,14.81,7.61L99.48,48,80.14,37.48l2-1.73,0,0,.31-.29L103,46.31a1.27,1.27,0,0,1,.33.24,1.34,1.34,0,0,1,0,1.88l-12,11.74L102.9,74a1.32,1.32,0,0,1-.17,1.87,1.27,1.27,0,0,1-.27.18L92.08,81.56v20.59a1.35,1.35,0,0,1-.83,1.23L53.7,122.44a1.35,1.35,0,0,1-1,.44,1.33,1.33,0,0,1-1.19-.74l-37.63-18.8a1.35,1.35,0,0,1-.73-1.19V81.66L2.57,76.07a2.11,2.11,0,0,1-.27-.18A1.33,1.33,0,0,1,2.13,74L13.4,60.53.33,48.14a1.33,1.33,0,0,1,.12-1.88,2,2,0,0,1,.26-.18L20.63,34.81a8,8,0,0,0,.85.89h0L23,37,4,47.8l11.9,11L29.61,52l-.78,3.44Zm61,7.09L54.37,81.17,61.8,94,99.07,73.73l-9.24-11.2Z"/>
+                    </svg>
+                   <span style="font-size:26px; color: #4b4b4b; font-weight: 600; padding-left: 15px;">Täze harytlar</span>    
+                   <hr>                
+                </div>
+               
+                <div class="" id="new_goods"></div>   
+
+            </div> <!-- End Right Side -->
+
+            </div> <!-- End Right Side -->
+        </div>
+    </div> 
+      
+      <script>
+
+    const $sidebar = $(".sidebar");
+    const $toggleBtn = $(".toggle-btn");
+    
+   
+    $toggleBtn.on("click", function () {
+        $sidebar.toggleClass("closed");
+    });
+
+    function handleResize() {
+        if ($(window).width() <= 760) {          
+
+            $sidebar.toggleClass("closed");   
+
+            $(".all_grupbalar, .metal_submenu").off("click").on("click", function() {
+                $sidebar.toggleClass("closed"); 
+                             
+            }); 
+        } 
+       // if ($(window).width() > 760) {  
+        else {
+            $sidebar.removeClass("closed"); // Büyük ekranlarda açık tut
+        }
+    }   
+    $(window).on("resize", handleResize);
+    $(document).ready(handleResize);
+
+      </script>
+
+      <div class="container-fluid" id="load_modal" >    
+    </div>
+        <div class="container" style="margin-top:1%; margin-bottom:2%; padding: 30px; display:block;"  id="ordered_table">        
+      
+        </div><!-- end container order_table-->
+    <!------------------------------------------ icons place  ----------------------------------------------------------->
+    <div class="container-fluid " style="border-top:1px solid #d2d5db; background-color: rgb(245, 245, 245);" id="icons_place">
+
+    </div>
+    <!------------------------------------------ End icons_place  ---------------------------------------------------->
+    <!------------------------------------------ Map  -------------------------------------------------------------------->
+    <div class="container-fluid" style="background: rgb(245, 245, 245);" id="address_map">
+    </div> <!--end container map-->
+   
+    <div class="container-fluid" id="icon_service" style="padding: 0;"></div>
+
+<div id="footer">    
+</div> 
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "pages/load_navbar.php",  
+                type: "GET",   
+                success: function(response) {
+                    $("#metalloprokat").html(response); 
+                },
+                error: function() {
+                    alert("Menü yüklenirken hata oluştu.");
+                }
+            });           
+            $(".pages").on("mouseenter", function () {
+        let goodsId = $(this).attr("id");
+        let submenu = $(this).siblings(".submenu");
+
+        if (submenu.data("loaded")) {
+            return; // Daha önce yüklenmişse tekrar yükleme
+        }
+        $.ajax({
+            url: "pages/load_sublinks.php",
+            type: "GET",
+            data: { goods_id: goodsId },
+            dataType: "json",
+            success: function (response ) {
+                submenu.empty(); 
+
+                if (response .length > 0 && !response .error) {
+                    response .forEach(function (item) {
+                        submenu.append('<li class="item_grupba"><a class="grupba_link" href="gurlusyk">' + item + '</a></li>');
+                    });
+                } 
+                else {
+                    submenu.append('<li class="no-data">No items found</li>');
+                }
+
+                submenu.data("loaded", true); 
+            },
+            error: function () {
+                submenu.empty().append('<li class="error">Alt menü yüklenirken hata oluştu.</li>');
+            }
+        });
+    });   
+    //$(document).on("click", ".item_grupba, .pages_metal", function(event) {
+        $(document).off("click", ".item_grupba, .pages_metal").on("click", ".item_grupba, .pages_metal", function (event) {
+    event.preventDefault();    
+    var menu_haryt = $(this).find(".grupba_link").text().trim();
+
+    var metal_haryt = $(this).hasClass("pages_metal")
+        ? $(this).text().trim() // Eğer bu öğe "pages_metal" ise kendi metnini al
+        : $(this).find(".pages_metal").text().trim(); // Aksi takdirde altındaki "pages_metal" öğesinin metnini al
+
+    // Tıklanan öğenin veya alt öğenin id'sini al
+    var metal_href = $(this).hasClass("pages_metal")
+        ? $(this).attr("href") // Eğer bu öğe "pages_metal" ise id'sini al
+        : $(this).find(".pages_metal").attr("href"); // Aksi takdirde altındaki "pages_metal" öğesinin id'sini al
+
+
+    var sectionId = $(this).attr("id");
+    var page_value = $(this).find(".grupba_link").attr('href');
+
+    if (menu_haryt && menu_haryt.length > 0) {
+        page_value = page_value.trim();
+    } 
+    else if (metal_href && metal_href.length > 0) {
+        page_value = metal_href.trim();
+        menu_haryt=metal_haryt       
+    } 
+    $("#select_owl, #new_goods, .new_goods_title, .place_area").css("display", "none");
+    $("#hide_width_carousel").css("display", "none");
+    $("#call_page").show();
+    $(".products_show, #main_cont").show(); 
+    $("#icons_place , #address_map").hide();  
+    $("#empty_cart").css("display", "none");
+
+    var pageToLoad = "pages/" + page_value + ".php?time=" + new Date().getTime();
+
+    $.ajax({
+        url: pageToLoad,
+        method: "POST",
+        data: { bolum: menu_haryt},
+        success: function(response) {
+            $("#products").html(response);
+            $("#cont_owl").hide();
+            localStorage.setItem('loadedContent', response);
+        },
+        error: function(xhr, status, error) {
+            console.error("İçerik yükleme hatası:", error);
+        }
+    });
+});
+
+
+    /*
+    // Menü dışına çıkıldığında alt menüyü gizle (isteğe bağlı)
+    $(".menu-item").on("mouseleave", function () {
+        let submenu = $(this).find(".submenu");
+        submenu.empty(); // Alt menüyü temizle
+        submenu.removeData("loaded"); // Yüklenme durumunu sıfırla
+    });
+*/
+        });
+        $(document).on('click', '.pages', function(event) {
+    event.preventDefault(); 
+    
+    var pageUrl = $(this).attr('href'); 
+    var pageTitle = $(this).text(); 
+
+    // $.ajax({
+    //     url: pageUrl,  
+    //     method: 'GET',
+    //     success: function(data) {       
+    //         history.pushState(null, pageTitle, pageUrl); // URL'yi güncelle
+    //         document.title = pageTitle; 
+    //     }, 
+    // });
+});
+
+    </script>
+
+
+    <script src="pages/loginregister/assets/js/metismenu.min.js"></script>
+    <script src="pages/loginregister/assets/js/waves.js"></script>
+    <script src="pages/loginregister/assets/js/simplebar.min.js"></script>
+
+
+
+    <script src="pages/js_files/address_map.js"></script>
+    <script src="pages/js_files/hamburgermenu.js"></script>
+    <script type="module" src="pages/js_files/call_pages_module.js"></script>
+    <!-- <script type="" src="pages/js_files/count_storage.js"></script>  -->
+
+    <script src="pages/OwlCarousel/dist/owl.carousel.min.js"></script>
+    <script src="pages/components/carousel_banner/callmaincarousel.js"></script>
+    <!-- <script src="css/navbar_active_class.js"></script> -->
+
+    <!-- <script type="module" src="pages/js_files/call_pages.js"></script> -->
+
+
+    <script>
+        /*
+        //1.Disabling Right-Click (Context Menu):
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+        //2. Disabling F12 and Ctrl+Shift+I (Inspect Element):
+        document.addEventListener("keydown", function (e) {
+            // F12 key
+            if (e.key === "F12") {
+                e.preventDefault();
+            }
+        
+            // Ctrl+Shift+I (Inspect Element)
+            if (e.ctrlKey && e.shiftKey && e.key === "I") {
+                e.preventDefault();
+            }
+        });
+        //3. Disabling Inspect Elements via Mouse and Keyboard:
+        // Disabling Inspect Elements via Mouse
+        document.addEventListener("mousedown", function(e) {
+            if (e.button === 2 || e.button === 1) { // Right-click or Middle-click
+                e.preventDefault();
+            }
+        });
+
+        // Disabling Inspect Elements via Keyboard
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && e.key === "U") { // Ctrl+U (View Source)
+                e.preventDefault();
+            }
+            if (e.ctrlKey && e.key === "S") { // Ctrl+S (Save As)
+                e.preventDefault();
+            }
+        });
+        */
+    </script>
+</body>
+</html>
+<script>
+    
+    $(document).ready(function() {
+     
+        $('.pages, .met').on('click', function() {
+            $('.nav-links, .met').removeClass('active'); 
+           });
+    });  
+       
+    </script>
+
+    <script>
+        /*
+        $(document).ready(function() {
+            $('#big_menu_yukle').hide()            
+            $('.call_big_menu').hover(
+            
+                function() { // mouseenter                
+             // $(".all_grupbalar").empty()
+
+                    $('#big_menu_yukle').stop(true, true).fadeIn(200);
+                  
+                },
+                function() { // mouseleave
+                    if (!$('#big_menu_yukle').is(':hover')) {
+                        $('#big_menu_yukle').stop(true, true).fadeOut(200);
+                    }
+                }
+            );        
+           
+            $('#big_menu_yukle').hover(
+                function() { // mouseenter
+                    $(this).stop(true, true).fadeIn(0);
+                },
+                function() { // mouseleave
+                    $(this).stop(true, true).fadeOut(0);
+                }
+            );            
+        });  
+        */       
+    </script>
+
+
+
+        

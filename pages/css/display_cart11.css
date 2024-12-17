@@ -1,0 +1,118 @@
+/* Tablonun genel görünümü */
+#cartTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* .card-body .saga_yasla{
+    margin-top: auto;
+} */
+
+#cartTable th, #cartTable td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#cartTable thead {
+    background-color: #f4f4f4;
+}
+
+#cartTable thead th {
+    font-weight: bold;
+    color: #333;
+}
+
+#cartTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#cartTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+#cartTable td input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+#totalSum {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Silme butonu */
+.delete-btn {
+    cursor: pointer;
+    color: red;
+    font-size: 18px;
+}
+
+.delete-btn:hover {
+    color: darkred;
+}
+
+/* Sepet linki */
+#shopping-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+#shopping-link i {
+    font-size: 24px;
+    color: #f47a00;
+}
+
+#shopping-link:hover {
+    color: #e67e22;
+}
+
+.btn_shop_svg {
+    text-decoration:none !important;
+    background-color: #4f75bd; 
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px; /* Buton yazı tipi boyutu */
+    
+}
+.btn_shop_svg:hover {
+color: #fff;
+}
+.btn_shop_svg img {
+    width: 30px; /* SVG genişliği */
+    height: 30px; /* SVG yüksekliği */
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+
+/* Ekran boyutu 768px'den küçükse buton ve ikon boyutunu küçült */
+@media (max-width: 768px) {
+    .btn_shop_svg {
+        font-size: 12px; /* Buton yazı boyutu */
+        padding: 3px 8px; /* Buton iç boşluğu */
+    }
+
+
+    .shopping-cart-icon {
+        width: 60px; /* Küçük ekranlar için daha küçük ikon boyutu */
+        height: 30px;
+    
+    }
+}
+
+/*          cart order widht input width            */
+
+.cart_order_input{
+    max-width: 120px;
+    margin: auto;
+}
+.sebet_haryt_ady{
+    text-align:left !important;
+}

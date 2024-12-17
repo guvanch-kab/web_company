@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+.single_product_page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+}
+.single_product_page .image_side{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 40%;
+  width: 100%;
+}
+.single_product_page .image_side .mineImge{
+  width: 100%;
+  padding: 1rem;
+}
+.single_product_page .image_side .mineImge img{
+  max-width: 100%;
+  cursor: pointer;
+}
+.single_product_page .image_side .litle_images{
+  display: flex;
+  max-height: 3rem;
+  width: 100%;
+}
+.single_product_page .image_side .litle_images img{
+  display: flex;
+  height: 100%;
+  padding: 0.1rem;
+  border: #eee 1px solid;
+  cursor: pointer;
+}
+.single_product_page .image_side .litle_images img:not(img:first-child){
+  margin-left: 1rem;
+}
+.single_product_page .dtail_side {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  max-height: 60%;
+  width: 100%;
+  padding: 0 1rem;
+}
+.top_single_page {
+  display: flex;
+}
+.rating_like_compare {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.4rem 0;
+}
+.rating_like_compare .like_compare i {
+  padding: 0.5rem;
+  border: 1px solid #8c8c8c;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.product_title {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 0.2rem;
+}
+.product_description {
+  font-size: 0.9rem;
+  color: #000;
+  margin-bottom: 0.2rem;
+}
+.stock_status {
+  width: 100%;
+  text-align: right;
+  margin: 0.7rem 0 0.2rem 0;
+}
+.stock_status .stock_have {
+  background-color: #c6efce;
+  padding: 0.5rem;
+  border-radius: 0.1rem;
+}
+.stock_status .stock_have i,
+.stock_status .stock_have {
+  color: #006100;
+}
+.stock_status .stock_no {
+  background-color: #ffc7ce;
+  padding: 0.5rem;
+  border-radius: 0.1rem;
+}
+.stock_status .stock_no i,
+.stock_status {
+  color: #9c0006;
+}
+
+.price_panel {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+.price {
+  display: flex;
+  justify-content: space-between;
+}
+.sale_price {
+  font-size: 0.8rem;
+  color: #8c8c8c;
+  font-weight: 600;
+  text-decoration: line-through;
+}
+.current_price {
+  font-size: 1.7rem;
+  color: #000;
+  font-weight: 700;
+}
+.price_side .lable,
+.lable_total_price .lable {
+  font-size: 1.5rem;
+  color: #000;
+}
+.lable_sale_price {
+  font-size: 1.7rem;
+  color: #000;
+  font-weight: 700;
+}
+.basket {
+  position: relative;
+  width: 10rem;
+}
+.add_basket {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2.3rem;
+  background-color: orangered;
+  border-radius: 0.2rem;
+  top: 0;
+  right: 0;
+}
+.add_basket i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.counter {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 2.3rem;
+  background-color: orangered;
+  border-radius: 0.2rem;
+  top: 0;
+  right: 0;
+}
+.counter input {
+  text-align: center;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: orangered;
+  max-width: 50%;
+  width: 100%;
+}
+.counter i {
+  cursor: pointer;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.counter .fa-solid-left {
+  margin-left: 1rem;
+  rotate: 90deg;
+}
+.counter .fa-solid-right {
+  margin-right: 1rem;
+  rotate: -270deg;
+}
+
+.terms_of_use {
+  width: 100%;
+}
+.accordion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.accordion:hover {
+  background-color: #ccc;
+}
+.accordion span {
+  font-size: 18px;
+  transition: all 0.2s;
+  padding: 0;
+}
+.active span {
+  transform: rotate(-45deg);
+}
+.panel {
+  padding: 0 10px;
+  height: 0;
+  background-color: white;
+  overflow: hidden;
+  transition: height all 4s;
+}
+.panel p {
+  font-size: 13px;
+  margin: 0.2rem 0;
+}
+.active + .panel {
+  height: auto;
+  border-top: none;
+  border: 1px solid #eee;
+  margin-bottom: 2px;
+  transition: height all 4s;
+}
+.price_panel {
+  width: 100%;
+}
+.harakter_side {
+  /* margin-top: 2rem; */
+}
+.tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.tab .tablinks {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.tab .tablinks:hover {
+  background-color: #ddd;
+}
+.tab .tablinks.active {
+  background-color: #ccc;
+}
+.tabcontent {
+  display: none;
+  padding: 20px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+.tabcontent.active {
+  display: block;
+}
